@@ -252,6 +252,9 @@ PRODUCT_PACKAGES += \
     SecureElementOverlayFuji
 
 PRODUCT_PACKAGES += \
+    LineageApertureOverlayFuji
+
+PRODUCT_PACKAGES += \
     RegulatoryInfoOverlayM08 \
     RegulatoryInfoOverlayF-51F
 
