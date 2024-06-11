@@ -183,6 +183,10 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/idc/,$(TARGET_COPY_OUT_VENDOR)/usr/idc) \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout)
 
+# Linker
+PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
+    $(LOCAL_PATH)/configs/linker.config.json
+
 # Keymint
 PRODUCT_PACKAGES += \
     libkeymint.vendor \
