@@ -46,7 +46,7 @@ on property:sys.boot_completed=1
 
     # Foreground tasks
     write /dev/cpuctl/foreground/cpu.uclamp.latency_sensitive 1
-    write /dev/cpuctl/foreground/cpu.uclamp.min 1
+    write /dev/cpuctl/foreground/cpu.uclamp.min 0
     write /dev/cpuctl/foreground/cpu.uclamp.max max
     write /dev/cpuctl/foreground/cpu.shares 10240
 
@@ -58,7 +58,7 @@ on property:sys.boot_completed=1
 
     # Top app tasks
     write /dev/cpuctl/top-app/cpu.uclamp.latency_sensitive 1
-    write /dev/cpuctl/foreground/cpu.uclamp.min 5
+    write /dev/cpuctl/top-app/cpu.uclamp.min 0
     write /dev/cpuctl/top-app/cpu.uclamp.max max
     write /dev/cpuctl/top-app/cpu.shares 20480
 
