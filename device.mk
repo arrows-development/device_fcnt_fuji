@@ -185,6 +185,10 @@ PRODUCT_COPY_FILES += \
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.1-service.manaus-multihal
+
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 31
 
