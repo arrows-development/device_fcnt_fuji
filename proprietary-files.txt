@@ -1535,9 +1535,6 @@ vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
 vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
 
 # Vibrator
-vendor/bin/hw/android.hardware.vibrator-service.mediatek
-vendor/etc/init/vibrator-mtk-default.rc
-vendor/etc/vintf/manifest/vibrator-mtk-default.xml
 vendor/firmware/haptic_ram.bin
 vendor/lib64/hw/vibrator.default.so
 vendor/lib64/libaacvibrator.so

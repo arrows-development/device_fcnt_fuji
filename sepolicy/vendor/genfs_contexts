@@ -37,10 +37,13 @@ genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/activat
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/brightness      u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/duration        u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/gain            u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/index           u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/loop            u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/seq             u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/state           u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/strength        u:object_r:sysfs_vibrator:s0
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/trigger         u:object_r:sysfs_vibrator:s0
+genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/vmax            u:object_r:sysfs_vibrator:s0
 
 # Wakeup
 genfscon sysfs /devices/platform/10001000.consys/wakeup/wakeup190                                                           u:object_r:sysfs_wakeup:s0
