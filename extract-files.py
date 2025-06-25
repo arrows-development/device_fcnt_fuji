@@ -85,6 +85,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcutils.so'),
     'vendor/lib64/com.motorola.hardware.biometric.fingerprint@1.1.so': blob_fixup()
         .add_needed('libshim_fp.so'),
+    'vendor/bin/hw/mtkfusionrild': blob_fixup()
+        .add_needed('libutils-v32.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
