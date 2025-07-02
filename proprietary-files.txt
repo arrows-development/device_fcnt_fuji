@@ -1,0 +1,3 @@
+## All proprietary files from this list, unless pinned and noted otherwise,
+## are from edge 40 neo (14 U1TMS34.107-34-9-3-4 5beb9-cde7fb).
+## variant: RETAIL
