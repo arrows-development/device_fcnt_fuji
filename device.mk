@@ -270,6 +270,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service.mediatek
 
+# VNDK
+PRODUCT_PACKAGES += \
+    vndservicemanager
+
 # Wifi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service-lazy \
