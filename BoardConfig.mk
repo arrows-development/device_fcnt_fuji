@@ -43,7 +43,7 @@ TARGET_SCREEN_DENSITY := 400
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 DEVICE_MATRIX_FILE += $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    vendor/lineage/config/device_framework_matrix.xml \
+    vendor/yaap/config/device_framework_matrix.xml \
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/mot_aids.fs
@@ -95,7 +95,7 @@ TARGET_KERNEL_CONFIG := manaus
 TARGET_KERNEL_SOURCE := $(DEVICE_PATH)-kernel/headers/
 
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
+-include vendor/yaap/config/BoardConfigReservedSize.mk
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -117,9 +117,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 BOARD_USES_METADATA_PARTITION := true
-
-# Platform
-TARGET_BOARD_PLATFORM := mt6879
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/props/vendor.prop
