@@ -2,6 +2,11 @@
 ## are from edge 40 neo (14 U1TMS34.107-34-9-3-4 5beb9-cde7fb).
 ## variant: RETAIL
 
+# AEE
+vendor/lib64/libaedv.so
+vendor/lib64/libladder.so
+vendor/lib64/libudf.so
+
 # Audio
 vendor/bin/mt6660_calibration
 vendor/bin/rt5512_calibration
