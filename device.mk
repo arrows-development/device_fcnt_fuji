@@ -267,6 +267,7 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek \
+    hardware/motorola \
     hardware/mediatek/libmtkperf_client \
     hardware/google/pixel \
     hardware/google/interfaces
