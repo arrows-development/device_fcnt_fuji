@@ -124,6 +124,7 @@ BOARD_USES_METADATA_PARTITION := true
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/props/vendor.prop
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/props/system.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/props/product.prop
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
