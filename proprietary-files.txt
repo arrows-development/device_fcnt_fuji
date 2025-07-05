@@ -11,6 +11,8 @@ vendor/lib64/libladder.so
 vendor/lib64/libudf.so
 
 # Audio
+vendor/bin/audiocmdservice_atci
+vendor/bin/aw882xx_cali
 vendor/bin/mt6660_calibration
 vendor/bin/rt5512_calibration
 vendor/etc/permissions/com.mediatek.hardware.vow_dsp.xml
@@ -211,7 +213,10 @@ vendor/lib64/vendor.mediatek.hardware.bluetooth.audio@2.2.so
 # Camera
 vendor/bin/hw/mt6879/camerahalserver;SYMLINK=vendor/bin/hw/camerahalserver
 vendor/bin/hw/motorola.hardware.camera.imgtuner@2.0-service
+vendor/bin/mt6879/dumpfaultd.mt6879;SYMLINK=vendor/bin/dumpfaultd
 vendor/etc/init/camerahalserver.rc
+vendor/etc/fstb.cfg
+vendor/etc/gbe.cfg
 vendor/etc/init/motorola.hardware.camera.imgtuner@2.0-service.rc
 vendor/etc/tetras/portrait_repair_composite.model
 vendor/etc/vintf/manifest/manifest_cameraprovider.xml
@@ -224,6 +229,7 @@ vendor/bin/sns_mot_client
 vendor/lib64/mt6879/libDR.so;SYMLINK=vendor/lib64/libDR.so
 vendor/lib64/mt6879/libacdk.so;SYMLINK=vendor/lib64/libacdk.so
 vendor/lib64/mt6879/libmfllcore.so;SYMLINK=vendor/lib64/libmfllcore.so
+vendor/lib64/libAncHumanSegFigureFusion.so
 vendor/lib64/jcos_client.so
 vendor/lib64/libBSTDSLR.so
 vendor/lib64/libBSTHDRDETECT.so
@@ -244,6 +250,14 @@ vendor/lib64/hw/mt6879/vendor.mediatek.hardware.camera.atms@1.0-impl.so;SYMLINK=
 vendor/lib64/hw/mt6879/android.hardware.camera.provider@2.6-impl-mediatek.so;SYMLINK=vendor/lib64/hw/android.hardware.camera.provider@2.6-impl-mediatek.so
 vendor/lib64/hw/mt6879/vendor.mediatek.hardware.camera.isphal@1.1-impl.so;SYMLINK=vendor/lib64/hw/vendor.mediatek.hardware.camera.isphal@1.1-impl.so
 vendor/lib64/hw/motorola.hardware.camera.imgtuner@2.0-impl.so
+vendor/lib64/mt6879/libaidepth_tuning.so;SYMLINK=vendor/lib64/libaidepth_tuning.so
+vendor/lib64/mt6879/libgpudataproducer.so;SYMLINK=vendor/lib64/libgpudataproducer.so
+vendor/lib64/mt6879/libmdla_ut.so;SYMLINK=vendor/lib64/libmdla_ut.so
+vendor/lib64/mt6879/libvainr_model.so;SYMLINK=vendor/lib64/libvainr_model.so
+vendor/lib64/mt6879/libaibc_tuning.so;SYMLINK=vendor/lib64/libaibc_tuning.so
+vendor/lib64/mt6879/libaibc_tuning_p2.so;SYMLINK=vendor/lib64/libaibc_tuning_p2.so
+vendor/lib64/mt6879/libaibc_tuning_p3.so;SYMLINK=vendor/lib64/libaibc_tuning_p3.so
+vendor/lib64/mt6879/libaibc_tuning_p4.so;SYMLINK=vendor/lib64/libaibc_tuning_p4.so
 vendor/lib64/mt6879/lib3a.ae.core.so;SYMLINK=vendor/lib64/lib3a.ae.core.so
 vendor/lib64/mt6879/lib3a.ae.so;SYMLINK=vendor/lib64/lib3a.ae.so
 vendor/lib64/mt6879/lib3a.af.assist.models1d.so;SYMLINK=vendor/lib64/lib3a.af.assist.models1d.so
@@ -564,6 +578,7 @@ vendor/lib64/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.security@1.0.so
 
 # Camera (arcsoft)
+vendor/etc/arcsoft_calibration_u_dc.bin
 vendor/lib64/arcsoft_portrait_super_night_se_raw.bin
 vendor/lib64/arcsoft_super_night_raw.bin
 vendor/lib64/arcsoft_super_night_se_raw.bin
@@ -573,10 +588,12 @@ vendor/lib64/libarcsoft_super_night_raw.so
 vendor/lib64/libarcsoft_super_night_se_raw.so
 
 # Camera (configs)
+vendor/etc/jiigan/jiigan_model.data
 vendor/etc/camera/vidhance.lic
 vendor/etc/camera/vidhance_calibration
 
 # Camera (parameter database)
+vendor/bin/crossbuild/DataSet/SQLiteModule/db/port_select.db;MAKE_COPY_RULE_ONLY
 vendor/bin/crossbuild/DataSet/SQLiteModule/db/pd/mt6879/ParameterDB_pd.db;SYMLINK=vendor/bin/crossbuild/DataSet/SQLiteModule/db/pd/ParameterDB_pd.db;MAKE_COPY_RULE_ONLY
 vendor/bin/crossbuild/DataSet/SQLiteModule/db/af/mt6879/ParameterDB_af.db;SYMLINK=vendor/bin/crossbuild/DataSet/SQLiteModule/db/af/ParameterDB_af.db;MAKE_COPY_RULE_ONLY
 vendor/bin/crossbuild/DataSet/SQLiteModule/db/feature/mt6879/ParameterDB_feature.db;SYMLINK=vendor/bin/crossbuild/DataSet/SQLiteModule/db/feature/ParameterDB_feature.db;MAKE_COPY_RULE_ONLY
@@ -669,12 +686,15 @@ vendor/firmware/soc7_0_ram_mcu_1_1_hdr.bin
 vendor/firmware/soc7_0_ram_mcu_1a_1_hdr.bin
 vendor/firmware/soc7_0_ram_mcu_1b_1_hdr.bin
 vendor/firmware/soc7_0_ram_wmmcu_1a_1_hdr.bin
+vendor/firmware/remoteproc_scp
 vendor/lib/libconnfem.so
 vendor/lib64/libconnfem.so
 
 # Display
 vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service
 vendor/etc/init/vendor.mediatek.hardware.pq@2.2-service.rc
+vendor/etc/aivrs.ini
+vendor/etc/hdrcfg_manaus.cfg
 vendor/lib/mt6879/arm.graphics-V1-ndk_platform.so;SYMLINK=vendor/lib/arm.graphics-V1-ndk_platform.so
 vendor/lib/hw/mt6879/vendor.mediatek.hardware.pq@2.15-impl.so;SYMLINK=vendor/lib/hw/vendor.mediatek.hardware.pq@2.15-impl.so
 vendor/lib/mt6879/libdpframework.so;SYMLINK=vendor/lib/libdpframework.so
@@ -807,6 +827,7 @@ vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-goodixservice
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-ets;DISABLE_CHECKELF
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-goodixservice.rc
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-ets2.rc
+vendor/lib64/libRbsFlow.so
 vendor/lib64/hw/fingerprint.goodix.default.so
 vendor/lib64/com.motorola.hardware.display.panel@1.0.so
 vendor/lib64/libgf_hal.so;DISABLE_CHECKELF
@@ -1233,6 +1254,8 @@ vendor/etc/init/init.cccifsd.rc
 vendor/etc/init/init.cccimdinit.rc
 vendor/etc/init/init.cccirpcd.rc
 vendor/etc/init/tetheroffloadservice.rc
+vendor/etc/init/rcs_volte_stack.rc
+vendor/etc/init/volte_rcs_ua.rc
 vendor/etc/init/ipsec_mon.rc
 vendor/etc/init/mtkrild.rc
 vendor/etc/init/muxreport.rc
@@ -1449,6 +1472,7 @@ vendor/lib64/vendor.trustonic.tee@1.0.so
 vendor/lib64/vendor.trustonic.tee@1.1.so
 
 # VPU
+vendor/lib64/libmvpu_config_data.so
 vendor/lib64/libmvpu_cic_ci_compiler.so
 vendor/lib64/libmvpu_clc_cl_compiler.so
 vendor/lib64/libmvpu_clc_mvpu_debuginfo.so
