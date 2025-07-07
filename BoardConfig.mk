@@ -133,6 +133,12 @@ ENABLE_VENDOR_RIL_SERVICE := true
 BOOT_SECURITY_PATCH := 2025-06-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
+# Sepolicy
+include device/mediatek/sepolicy_vndr/SEPolicy.mk
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
+SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
+
 # SKU
 ODM_MANIFEST_SKUS += be de bn dn
 ODM_MANIFEST_BE_FILES := $(DEVICE_PATH)/configs/sku/manifest_de.xml
