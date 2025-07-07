@@ -278,18 +278,6 @@ on property:ro.vendor.build.motfactory=1
 on property:sys.sysctl.swappiness=*
     write /proc/sys/vm/swappiness ${sys.sysctl.swappiness}
 
-# IKSWU-152028: Force shutter tone on Japan softbank carrier
-on property:ro.carrier=softbank
-    setprop audio.camerasound.force true
-
-# IKSWT-90913: Force shutter tone on Japan ymobile carrier
-on property:ro.carrier=ymobile
-    setprop audio.camerasound.force true
-
-# IKSWU-148561: Force shutter tone on Japan Docomo carrier
-on property:ro.carrier=docomo
-    setprop audio.camerasound.force true
-
 # IKSWU-165346: Force shutter tone on Korea carriers
 on property:ro.carrier=retkr
     setprop audio.camerasound.force true
