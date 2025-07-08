@@ -61,6 +61,9 @@
 # Secure Element
 /vendor/bin/hw/android\.hardware\.secure_element-service\.nxp                          u:object_r:hal_secure_element_default_exec:s0
 
+# Vibrator
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.manaus                        u:object_r:hal_vibrator_default_exec:s0
+
 # Wakeups
 /sys/devices/virtual/input/input[0-9]+/wakeup[0-9]+(/.*)?                              u:object_r:sysfs_wakeup:s0
 /sys/devices/platform/soc/[^*]+/wakeup/wakeup[0-9]+(/.*)?                              u:object_r:sysfs_wakeup:s0
