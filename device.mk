@@ -216,6 +216,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
 
+# MotoActions
+PRODUCT_PACKAGES += \
+    MotoActions
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \
