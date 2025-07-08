@@ -21,6 +21,7 @@ namespace_imports = [
     'device/motorola/manaus',
     'hardware/mediatek/libmtkperf_client',
     'hardware/mediatek',
+    'hardware/motorola',
 ]
 
 
