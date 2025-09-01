@@ -1,3 +1,6 @@
+# e-SIM
+masterclear.allow_retain_esim_profiles_after_fdr=1
+
 # Motorola
 ro.mot.product_wave=2023.3
 ro.mot.build.customerid=global

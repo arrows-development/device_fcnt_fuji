@@ -2,7 +2,7 @@ Common_CFlags = ["-Wall"]
 Common_CFlags += ["-Werror"]
 
 cc_library_shared {
-    name: "vendor.qti.hardware.vibrator.impl.manaus",
+    name: "vendor.qti.hardware.vibrator.impl.fuji",
     vendor: true,
     cflags: Common_CFlags,
     srcs: [
@@ -18,12 +18,12 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "vendor.qti.hardware.vibrator.service.manaus",
+    name: "vendor.qti.hardware.vibrator.service.fuji",
     vendor: true,
     relative_install_path: "hw",
-    init_rc: ["vendor.qti.hardware.vibrator.service.manaus.rc"],
+    init_rc: ["vendor.qti.hardware.vibrator.service.fuji.rc"],
     vintf_fragments: [
-        "vendor.qti.hardware.vibrator.service.manaus.xml",
+        "vendor.qti.hardware.vibrator.service.fuji.xml",
     ],
     cflags: Common_CFlags,
     srcs: [
@@ -37,6 +37,6 @@ cc_binary {
         "libbinder_ndk",
         "liblog",
         "android.hardware.vibrator-V3-ndk",
-        "vendor.qti.hardware.vibrator.impl.manaus",
+        "vendor.qti.hardware.vibrator.impl.fuji",
     ],
 }

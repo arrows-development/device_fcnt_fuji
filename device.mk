@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/motorola/manaus
+DEVICE_PATH := device/fcnt/fuji
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -45,7 +45,7 @@ PRODUCT_PACKAGES += \
 # Audio
 $(call soong_config_set,android_hardware_audio,run_64bit,true)
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.0-impl \
+    android.hardware.audio@7.1-impl \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl
@@ -118,7 +118,6 @@ PRODUCT_COPY_FILES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.3-service \
     android.hardware.memtrack-service.mediatek
 
 PRODUCT_COPY_FILES += \
@@ -139,18 +138,10 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    libshim_fp \
-    android.hardware.biometrics.fingerprint@2.3-service.manaus \
-    vendor.egistec.hardware.fingerprint@4.0.vendor
+    com.motorola.hardware.biometric.fingerprint@1.0.vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
-
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
 
 # GNSS
 PRODUCT_COPY_FILES += \
@@ -161,13 +152,17 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
+# HotwordEnrollment
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
+
 # IMS
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml
 
 # Init
 PRODUCT_PACKAGES += \
-    fstab.mt6879 \
+    fstab.mt6897 \
     init.sku.rc \
     init.connectivity.rc \
     init.connectivity.common.rc \
@@ -175,21 +170,22 @@ PRODUCT_PACKAGES += \
     init.mmi.overlay.rc \
     init.mmi.rc \
     init.modem.rc \
-    init.recovery.mt6879.rc \
-    init.mt6879.rc \
-    init.mt6879.usb.rc \
-    init.mt6879.power.rc \
+    init.recovery.mt6897.rc \
+    init.mt6897.rc \
+    init.mt6897.usb.rc \
+    init.mt6897.power.rc \
     init.mtkgki.rc \
     init.oem.hw.sh \
     init.project.rc \
     init.sensor_2_0.rc \
-    ueventd.mt6879.rc
+    ueventd.mt6897.rc
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/init/fstab.mt6879:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6879
+    $(DEVICE_PATH)/init/fstab.mt6897:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6897
 
 # Keylayout
 PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/idc/,$(TARGET_COPY_OUT_VENDOR)/usr/idc) \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout)
 
 # Keymint
@@ -205,28 +201,19 @@ PRODUCT_PACKAGES += \
     libkeystore-engine-wifi-hidl
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml \
-    frameworks/native/data/etc/android.hardware.hardware_keystore.xml:$(TARGET_COPY_OUT_VENDOR)vendor/etc/permissions/android.hardware.hardware_keystore.xml
+    frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.manaus
+    android.hardware.lights-service.fuji
 
 # Media
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/media,$(TARGET_COPY_OUT_VENDOR)/etc)
 
-# Moto hardware
-PRODUCT_PACKAGES += \
-    MotoActions \
-    MotoCommonOverlay
-
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-service.nxp \
-    android.hardware.secure_element-service.nxp
-
-PRODUCT_PACKAGES += \
+    android.hardware.nfc-service.st \
     com.android.nfc_extras \
     libchrome.vendor \
     Tag
@@ -237,7 +224,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.uicc.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml
 
-DEVICE_NFC_SKUS := be de
+DEVICE_NFC_SKUS := dns dnsf ns
 
 PRODUCT_COPY_FILES += \
     $(foreach DEVICE_NFC_SKU, $(DEVICE_NFC_SKUS), \
@@ -248,21 +235,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayManaus \
-    SettingsResOverlayManaus \
-    SystemUIOverlayManaus \
+    FrameworkResOverlayFuji \
+    SettingsResOverlayFuji \
+    SystemUIOverlayFuji \
     TetheringConfigOverlay \
     WifiOverlay \
     EuiccOverlay \
-    TelephonyOverlayManaus
-
-PRODUCT_PACKAGES += \
-    RegulatoryOverlayXT2307-3
+    TelephonyOverlayFuji
 
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr \
-    vendor.mediatek.hardware.mtkpower@1.2-service.stub
+    libpowerhalwrap_vendor
 
 PRODUCT_PACKAGES += \
     libmtkperf_client_vendor
@@ -274,24 +258,25 @@ PRODUCT_COPY_FILES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6879
+TARGET_BOARD_PLATFORM := mt6897
 
 # Radio
 PRODUCT_PACKAGES += \
     vendor_mdota_symlink
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
+    frameworks/native/data/etc/android.hardware.telephony.ims.singlereg.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.ims.singlereg.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml \
-    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
-    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml
+    frameworks/native/data/etc/android.hardware.telephony.euicc.mep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.euicc.mep.xml \
+    frameworks/native/data/etc/android.hardware.telephony.satellite.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.satellite.xml
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.manaus-multihal
+    android.hardware.sensors@2.1-service.fuji-multihal
 
 # Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 34
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -320,7 +305,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.manaus
+    vendor.qti.hardware.vibrator.service.fuji
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -338,4 +323,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/motorola/manaus/manaus-vendor.mk)
+$(call inherit-product, vendor/fcnt/fuji/fuji-vendor.mk)

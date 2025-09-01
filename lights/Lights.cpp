@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.lights-service.manaus"
+#define LOG_TAG "android.hardware.lights-service.fuji"
 
 #include "Lights.h"
 #include <android-base/file.h>
