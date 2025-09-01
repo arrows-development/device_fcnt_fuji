@@ -1,16 +1,9 @@
 <compatibility-matrix version="7.0" type="framework">
-    <hal format="aidl" optional="true">
+    <hal format="hidl" optional="true">
         <name>android.hardware.biometrics.fingerprint</name>
+        <version>2.1-3</version>
         <interface>
-            <name>IFingerprint</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>android.hardware.biometrics.fingerprint</name>
-        <version>3</version>
-        <interface>
-            <name>IFingerprint</name>
+            <name>IBiometricsFingerprint</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -21,11 +14,26 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.cas</name>
+        <version>1.2</version>
+        <interface>
+            <name>IMediaCasService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.camera.provider</name>
         <interface>
             <name>ICameraProvider</name>
             <instance>internal/0</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.light</name>
+        <interface>
+            <name>ILights</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
@@ -185,6 +193,14 @@
             <instance>slot4</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.sensors</name>
+        <version>2.1</version>
+        <interface>
+            <name>ISensors</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.soundtrigger3</name>
         <interface>
@@ -193,10 +209,24 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.se.omapi</name>
+        <interface>
+            <name>ISecureElementService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>arm.mali.platform</name>
         <version>1-2</version>
         <interface>
             <name>ICompression</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>com.fingerprints.fpc.extension</name>
+        <interface>
+            <name>IFpcExtension</name>
             <instance>default</instance>
         </interface>
     </hal>
