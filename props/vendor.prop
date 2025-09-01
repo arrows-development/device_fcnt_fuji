@@ -133,7 +133,7 @@ ro.vendor.mtk_widevine_drm_l1_support=1
 persist.sys.fuse.passthrough.enable=true
 
 # GPS
-ro.vendor.gps.chrdev=gps_drv_stp
+ro.vendor.gps.chrdev=gps_drv_dl_v051
 ro.vendor.mtk_agps_app=1
 ro.vendor.mtk_gps_support=1
 ro.vendor.mtk_log_hide_gps=1

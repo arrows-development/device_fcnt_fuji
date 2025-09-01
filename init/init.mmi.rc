@@ -1,15 +1,18 @@
 
 # Test commands
 import /vendor/etc/init/hw/init.mmi.tcmd.rc
-import /vendor/etc/init/hw/apanic.rc
+import /vendor/etc/init/apanic.rc
 # Chipset-specific file
 import /vendor/etc/init/hw/init.mmi.chipset.rc
 # Target-specific file
 import /vendor/etc/init/hw/init.mmi.overlay.rc
 #USB rc
 import /vendor/etc/init/hw/init.mmi.usb.configfs.rc
-# Add debug specific - currently used for install attestation keys on userdebug builds
+# Moto debugging
 import /vendor/etc/init/hw/init.mmi.debug.rc
+
+on early-init && property:ro.boot.mmi.bootlog=true
+    start mmi-bootlog-dmesg
 
 on early-init
     wait /dev/block/by-name/hw
@@ -35,6 +38,7 @@ on early-init
     setprop ro.vendor.boot.powerup_reason ${ro.boot.powerup_reason}
     setprop ro.vendor.boot.bl_state ${ro.boot.bl_state}
     setprop ro.vendor.boot.serialno ${ro.boot.serialno}
+    setprop ro.vendor.boot.nal_id ${ro.boot.nal_id}
     setprop ro.vendor.zygote ${ro.zygote}
     setprop ro.carrier unknown
 
@@ -48,12 +52,20 @@ on property:sys.boot_completed=1 && property:ro.vendor.zram.product_swapon=""
 on post-fs
     # for batt_health server
     mkdir /mnt/vendor/persist/batt_health 0770 vendor_pwric vendor_pwric
+    chown vendor_pwric vendor_pwric /mnt/vendor/persist/batt_health/first_usage_date
+    chmod 0664 /mnt/vendor/persist/batt_health/first_usage_date
+    chown vendor_pwric vendor_pwric /mnt/vendor/persist/batt_health/manufacturing_date
+    chmod 0664 /mnt/vendor/persist/batt_health/manufacturing_date
     restorecon_recursive /mnt/vendor/persist
    # Set dm-verity property for dm-verified partitions
     verity_update_state
 
 on post-fs-data
      setprop ro.vendor.build.fingerprint ${ro.product.vendor.brand}/${ro.product.vendor.name}/${ro.product.vendor.device}:${ro.vendor.build.version.release}/${ro.vendor.build.id}/${ro.vendor.build.version.incremental}:${ro.vendor.build.type}/${ro.vendor.build.tags}
+
+     setprop ro.product.brand_for_attestation ${ro.product.vendor.brand}
+     setprop ro.product.name_for_attestation ${ro.product.vendor.name}
+     setprop ro.product.model_for_attestation ${persist.vendor.mot.model_for_attestation}
 
      # Setup folders for security
      mkdir /mnt/vendor/persist/security 02770 drmrpc drmrpc
@@ -80,7 +92,6 @@ on post-fs-data
      # Imager tuning data for rescue Feature
      mkdir /mnt/vendor/persist/camera/iqtuning 0771 camera camera
 
-
      # Create bug2go folder
      mkdir /data/vendor/bug2go 0770 log log
 
@@ -96,8 +107,6 @@ on post-fs-data
 
     copy /data/vendor_de/power_supply_logger/memtest.log /data/vendor/power_supply_logger/memtest.log
 
-    start vendor.hal-fps-sh
-
 service vendor.bl_logs_copy /vendor/bin/apanic_copy.sh -i
     class late_start
     group log
@@ -110,9 +119,13 @@ on charger
     trigger post-fs
     trigger late-fs
     trigger post-fs-data
+    trigger tks-charger
     class_stop main
     class_stop late_start
     chown system system /sys/class/leds/lcd-backlight/max_brightness
+
+on tks-charger && property:persist.sys.tksautoboot=1
+    setprop sys.powerctl "reboot,tks-charger"
 
 on boot
  # Change ownership and permission for leds backlight
@@ -122,6 +135,12 @@ on boot
  # Change ownership and permission for charge
    chown system system /sys/class/power_supply/battery/charging_enabled
    chmod 0664 /sys/class/power_supply/battery/charging_enabled
+ #change ownership and permission for batt info node.
+   chown root system /proc/config/batt_firstusagedate
+   chown system system /sys/class/power_supply/battery/manufacturing_date
+   chmod 0664 /sys/class/power_supply/battery/manufacturing_date
+   chown system system /sys/class/power_supply/battery/first_usage_date
+   chmod 0664 /sys/class/power_supply/battery/first_usage_date
 
  # Change ownership and permission for vibrator
    chown system system /sys/class/leds/vibrator/state
@@ -150,6 +169,18 @@ on property:sys.boot_completed=*
     setprop ro.vendor.boot.uid ${ro.boot.uid}
     setprop ro.vendor.boot.secure_hardware ${ro.boot.secure_hardware}
 
+on property:sys.boot_completed=1
+    start vendor.batt_health
+
+on charger
+    start vendor.batt_health
+
+service vendor.batt_health /vendor/bin/batt_health
+    class late_start
+    user vendor_pwric
+    group vendor_pwric cache net_admin log system
+    disabled
+
 service vendor.mmi-block-perm /vendor/bin/init.mmi.block_perm.sh
     class main
     user root
@@ -166,12 +197,30 @@ service vendor.mmi-shutdown-sh /vendor/bin/init.mmi.shutdown.sh
     oneshot
     disabled
 
+service vendor.utag_spy.ship_dirty /vendor/bin/utag_spy ship_dirty ${mot.oobe.rubbish.screenshot}
+    class late_start
+    user system
+    group system
+    oneshot
+    disabled
+
+on property:mot.oobe.rubbish.screenshot=1
+    start vendor.utag_spy.ship_dirty
+
+on init && property:ro.boot.mmi.bootlog=true
+    start mmi-bootlog-logcat
+    start mmi-bootlog
+
+on property:sys.boot_completed=1 && property:ro.boot.mmi.bootlog=true
+    stop mmi-bootlog-dmesg
+    stop mmi-bootlog-logcat
+    stop mmi-bootlog
+
 service vendor.hal-fps-sh /vendor/bin/init.oem.fingerprint2.sh
     class late_start
     user root
     group system
     oneshot
-    disabled
 
 service vendor.oem-hw-sh /vendor/bin/init.oem.hw.sh
     class core
@@ -224,21 +273,13 @@ service vendor.mmi-boot-sh /vendor/bin/init.mmi.boot.sh
 on property:ro.vendor.mot.hw.rkp_csr_uploaded=* && property:sys.boot_completed=1
     setprop ro.rkp.csr_uploaded ${ro.vendor.mot.hw.rkp_csr_uploaded}
 
-on property:ro.boot.force_aplogd_enable=1
-    setprop ro.logd.kernel true
-    stop logd
-    start logd
-
-on post-fs && property:ro.boot.force_aplogd_enable=1
-    setprop persist.vendor.log.aplogd.enable 1
-
 on property:persist.vendor.log.aplogd.enable=1
      start vendor.aplogd
 
 on property:persist.vendor.log.aplogd.enable=0
      stop vendor.aplogd
 
-on property:ro.vendor.hw.dualsim=true
+on init && property:ro.vendor.hw.dualsim=true
    setprop persist.radio.multisim.config dsds
    setprop persist.vendor.radio.msimmode dsds
    setprop telephony.active_modems.max_count 2
@@ -249,7 +290,7 @@ on property:ro.vendor.hw.dualsim=true
    setprop ro.vendor.mtk_disable_cap_switch 0
    setprop ro.vendor.mtk_data_config 1
 
-on property:ro.vendor.hw.dualsim=false
+on init && property:ro.vendor.hw.dualsim=false
    setprop persist.radio.multisim.config ss
    setprop persist.vendor.radio.msimmode ss
    setprop telephony.active_modems.max_count 1
@@ -270,6 +311,22 @@ service vendor.aplogd /vendor/bin/aplogd
      # for kernel logging.
      disabled
 
+service vendor.mmi-attest-model-sh /vendor/bin/init.mmi.attest_model.sh /vendor/etc/attest_model_list.txt
+    class core
+    user root
+    oneshot
+
+##Limit the pmic ICL for USB accessory mode
+on property:sys.usb.accessory_current_limit=1
+   write /sys/devices/platform/charger/force_pmic_icl 1000
+
+on property:sys.usb.accessory_current_limit=0
+   write /sys/devices/platform/charger/force_pmic_icl 0
+
+# Set dsda for cybert PRC sku
+on init && property:ro.vendor.hw.dualsim=true && property:ro.product.vendor.model=cybert && property:ro.vendor.hw.radio=PRC
+   setprop persist.radio.multisim.config dsda
+
 # from P onwards aplogd cannot read vold.post_fs_data_done so a new property
 # shall be used to allow aplogd checking if FBE has finished /data decryption
 on property:vold.post_fs_data_done=*
@@ -281,6 +338,30 @@ on property:ro.vendor.build.motfactory=1
 on property:sys.sysctl.swappiness=*
     write /proc/sys/vm/swappiness ${sys.sysctl.swappiness}
 
+# IKSWU-152028: Force shutter tone on Japan softbank carrier
+on property:ro.carrier=softbank
+    setprop audio.camerasound.force true
+
+# IKSWT-90913: Force shutter tone on Japan ymobile carrier
+on property:ro.carrier=ymobile
+    setprop audio.camerasound.force true
+
+# IKSWU-148561: Force shutter tone on Japan Docomo carrier
+on property:ro.carrier=docomo
+    setprop audio.camerasound.force true
+
+# IKSWV-155333: Force shutter tone on Japan retjp carrier
+on property:ro.carrier=retjp
+    setprop audio.camerasound.force true
+
+# IKSWV-155333: Force shutter tone on Japan kddi carrier
+on property:ro.carrier=kddi
+    setprop audio.camerasound.force true
+
+# IKSWV-155333: Force shutter tone on Japan rakuten carrier
+on property:ro.carrier=rakuten
+    setprop audio.camerasound.force true
+
 # IKSWU-165346: Force shutter tone on Korea carriers
 on property:ro.carrier=retkr
     setprop audio.camerasound.force true
@@ -291,10 +372,21 @@ on property:ro.sys.force_max_chrg_temp=*
 on property:ro.sys.force_demo_mode=*
     write /sys/devices/platform/charger/force_demo_mode ${ro.sys.force_demo_mode}
 
+on property:ro.vendor.hw.pvtui=*
+    setprop ro.hardware.device.pvtui ${ro.vendor.hw.pvtui}
+
+on property:ro.vendor.hw.felica=true && property:ro.vendor.hw.nfc=ese_st
+   setprop persist.vendor.nfc.st_nfc_felica_ese 1
+
+on property:sys.clear_batt_first_usage_date=true
+    write /proc/config/all/new batt_firstusagedate:strX
+    wait  /proc/config/batt_firstusagedate/ascii
+    write /proc/config/batt_firstusagedate/ascii 1
+    write /mnt/vendor/persist/batt_health/first_usage_date 0
+    setprop sys.clear_batt_first_usage_date done
+
 on shutdown
     exec_start vendor.mmi-shutdown-sh
 
-# Sync the system MSI property of RKP state onto vendor
-on property:sys.rkp.enable=* && property:sys.boot_completed=1
-    setprop persist.vendor.moto.rkp.enable ${sys.rkp.enable}
-    start vendor.mbm_spy
+on property:ro.boot.is_thinkphone=*
+    setprop ro.product.is_thinkphone ${ro.boot.is_thinkphone}
