@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <root>
-    <card name="mt6879mt6368" />
+    <card name="mt6897mt6368" />
     <outputdevice name="RCV_OUT" path="I2S1"/>
     <mixercontrol>
         <versioncontrol value="1.01">

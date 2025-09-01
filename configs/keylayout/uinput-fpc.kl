@@ -1,0 +1,11 @@
+#
+# FPC1020 Touch sensor driver
+#
+
+# fpc1020 "finger present"
+key 618   SYSTEM_NAVIGATION_UP
+key 619   SYSTEM_NAVIGATION_DOWN
+
+#add FCNT exlider keys
+key 317   BUTTON_THUMBL
+key 318   BUTTON_THUMBR

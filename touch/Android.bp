@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.lineage.touch@1.0-service.manaus",
-    vintf_fragments: ["vendor.lineage.touch@1.0-service.manaus.xml"],
-    init_rc: ["vendor.lineage.touch@1.0-service.manaus.rc"],
+    name: "vendor.lineage.touch@1.0-service.fuji",
+    vintf_fragments: ["vendor.lineage.touch@1.0-service.fuji.xml"],
+    init_rc: ["vendor.lineage.touch@1.0-service.fuji.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     proprietary: true,

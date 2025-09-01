@@ -4,7 +4,7 @@
 /data/vendor/misc/imager                                                               u:object_r:vendor_camera_data_file:s0
 /data/vendor/camera(/.*)?                                                              u:object_r:vendor_camera_data_file:s0
 /mnt/vendor/persist/camera(/.*)?                                                       u:object_r:vendor_persist_camera_file:s0
-/vendor/bin/hw/motorola\.hardware\.camera\.imgtuner@2\.0-service                       u:object_r:hal_camera_default_exec:s0
+/vendor/bin/hw/fcnt\.hardware\.camera\.imgtuner@2\.0-service                       u:object_r:hal_camera_default_exec:s0
 
 # Double Tap
 /sys/devices/virtual/touchscreen/primary/double_tap_enabled                            u:object_r:vendor_sysfs_touchpanel:s0
@@ -18,7 +18,7 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-chipone         u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-goodixservice           u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-fpc             u:object_r:hal_fingerprint_default_exec:s0
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.manaus         u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.fuji         u:object_r:hal_fingerprint_default_exec:s0
 
 # Init Scripts
 /vendor/bin/init\.mmi\.block_perm\.sh                                                  u:object_r:vendor_moto_init_shell_exec:s0
@@ -34,7 +34,7 @@
 /vendor/bin/init\.modprobe\.sh                                                         u:object_r:vendor_modinstall-sh_exec:s0
 
 # Lights
-/vendor/bin/hw/android\.hardware\.lights-service\.manaus                              u:object_r:hal_light_default_exec:s0
+/vendor/bin/hw/android\.hardware\.lights-service\.fuji                              u:object_r:hal_light_default_exec:s0
 
 # Mobicore TEE
 /mnt/vendor/tzapp(/.*)?                                                                u:object_r:mnt_vendor_trustlet_file:s0
@@ -43,7 +43,7 @@
 /vendor/bin/motobox                                                                    u:object_r:vendor_motobox_exec:s0
 
 # MultiHal
-/vendor/bin/hw/android\.hardware\.sensors@2.1-service\.manaus-multihal                                                   u:object_r:hal_sensors_default_exec:s0
+/vendor/bin/hw/android\.hardware\.sensors@2.1-service\.fuji-multihal                                                   u:object_r:hal_sensors_default_exec:s0
 
 # NFC
 /dev/nq-nfc                                                                            u:object_r:nfc_device:s0
@@ -62,11 +62,11 @@
 /vendor/bin/hw/android\.hardware\.secure_element-service\.nxp                          u:object_r:hal_secure_element_default_exec:s0
 
 # Vibrator
-/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.manaus                        u:object_r:hal_vibrator_default_exec:s0
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.fuji                        u:object_r:hal_vibrator_default_exec:s0
 
 # Wakeups
 /sys/devices/virtual/input/input[0-9]+/wakeup[0-9]+(/.*)?                              u:object_r:sysfs_wakeup:s0
 /sys/devices/platform/soc/[^*]+/wakeup/wakeup[0-9]+(/.*)?                              u:object_r:sysfs_wakeup:s0
 /sys/devices/virtual/misc/[^*]+/wakeup[0-9]+(/.*)?                                     u:object_r:sysfs_wakeup:s0
 
-/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.manaus                         u:object_r:hal_lineage_touch_default_exec:s0
+/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.fuji                         u:object_r:hal_lineage_touch_default_exec:s0

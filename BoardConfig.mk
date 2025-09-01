@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 BUILD_BROKEN_DUP_RULES := true
-DEVICE_PATH := device/motorola/manaus
+DEVICE_PATH := device/fcnt/fuji
 
 # A/B
 AB_OTA_UPDATER := true
@@ -33,7 +33,7 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a55
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := manaus
+TARGET_BOOTLOADER_BOARD_NAME := fuji
 TARGET_NO_BOOTLOADER := true
 
 # Display
@@ -54,7 +54,7 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/mot_aids.fs
 TARGET_RECOVERY_UI_MARGIN_HEIGHT := 165
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
 BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.mt6879
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.mt6897
 TARGET_RECOVERY_PIXEL_FORMAT := BGRA_8888
 TARGET_USERIMAGES_USE_F2FS := true
 
@@ -101,10 +101,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_EROFS_PCLUSTER_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_SUPER_PARTITION_SIZE := 7507804160
+BOARD_SUPER_PARTITION_SIZE := 19327352832
 BOARD_SUPER_PARTITION_GROUPS := motorola_dynamic_partitions
 BOARD_MOTOROLA_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor vendor_dlkm product
-BOARD_MOTOROLA_DYNAMIC_PARTITIONS_SIZE := 7305808160
+BOARD_MOTOROLA_DYNAMIC_PARTITIONS_SIZE := 19125356832
 
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
@@ -140,11 +140,16 @@ SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
 SELINUX_IGNORE_NEVERALLOWS := true
 
 # SKU
-ODM_MANIFEST_SKUS += be de bn dn
-ODM_MANIFEST_BE_FILES := $(DEVICE_PATH)/configs/sku/manifest_de.xml
-ODM_MANIFEST_DE_FILES := $(DEVICE_PATH)/configs/sku/manifest_be.xml
-ODM_MANIFEST_BN_FILES := $(DEVICE_PATH)/configs/sku/manifest_bn.xml
+ODM_MANIFEST_SKUS += dn dns dnsf dsds n ns qsqs ss tsts
 ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/configs/sku/manifest_dn.xml
+ODM_MANIFEST_DNS_FILES := $(DEVICE_PATH)/configs/sku/manifest_dns.xml
+ODM_MANIFEST_DNSF_FILES := $(DEVICE_PATH)/configs/sku/manifest_dnsf.xml
+ODM_MANIFEST_DSDS_FILES := $(DEVICE_PATH)/configs/sku/manifest_dsds.xml
+ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/configs/sku/manifest_n.xml
+ODM_MANIFEST_NS_FILES := $(DEVICE_PATH)/configs/sku/manifest_ns.xml
+ODM_MANIFEST_QSQS_FILES := $(DEVICE_PATH)/configs/sku/manifest_qsqs.xml
+ODM_MANIFEST_SS_FILES := $(DEVICE_PATH)/configs/sku/manifest_ss.xml
+ODM_MANIFEST_TSTS_FILES := $(DEVICE_PATH)/configs/sku/manifest_tsts.xml
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -182,4 +187,4 @@ WIFI_HAL_INTERFACE_COMBINATIONS += ,{{{STA}, 1}, {{NAN}, 1}}
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 # Inherit the proprietary files
-include vendor/motorola/manaus/BoardConfigVendor.mk
+include vendor/fcnt/fuji/BoardConfigVendor.mk

@@ -115,7 +115,7 @@ HalProxy::~HalProxy() {
 Return<void> HalProxy::getSensorsList_2_1(ISensorsV2_1::getSensorsList_2_1_cb _hidl_cb) {
     std::vector<V2_1::SensorInfo> sensors;
     for (const auto& iter : mSensors) {
-        if (iter.second.typeAsString != "com.motorola.sensor.double_tap" || iter.second.typeAsString != "com.motorola.sensor.tap") {
+        if (iter.second.typeAsString != "com.fcnt.sensor.double_tap" || iter.second.typeAsString != "com.fcnt.sensor.tap") {
             sensors.push_back(iter.second);
         }
     }

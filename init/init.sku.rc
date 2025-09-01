@@ -1,4 +1,4 @@
-# manaus project sku
+# fuji project sku
 
 on init && property:ro.vendor.hw.esim="false"
     mount none /product/lost+found /product/etc/permissions/android.hardware.telephony.euicc.xml bind

@@ -18,7 +18,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/motorola/manaus',
+    'device/fcnt/fuji',
     'hardware/mediatek/libmtkperf_client',
     'hardware/mediatek',
     'hardware/motorola',
@@ -35,8 +35,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'system_ext/priv-app/ImsService/ImsService.apk': blob_fixup()
-        .apktool_patch('ims-patches'),
+    #'system_ext/priv-app/ImsService/ImsService.apk': blob_fixup()
+    #    .apktool_patch('ims-patches'),
     ('system_ext/etc/init/init.vtservice.rc', 'vendor/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc'): blob_fixup()
         .regex_replace('start', 'enable'),
     'system_ext/lib64/libimsma.so': blob_fixup()
@@ -55,22 +55,22 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.hardware.security.keymint-V1-ndk_platform.so', 'android.hardware.security.keymint-V1-ndk.so')
         .replace_needed('android.hardware.security.sharedsecret-V1-ndk_platform.so', 'android.hardware.security.sharedsecret-V1-ndk.so')
         .replace_needed('android.hardware.security.secureclock-V1-ndk_platform.so', 'android.hardware.security.secureclock-V1-ndk.so'),
-    ('vendor/bin/mnld', 'vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so', 'vendor/lib64/mt6879/libcam.utils.sensorprovider.so'): blob_fixup()
+    ('vendor/bin/mnld', 'vendor/lib64/hw/android.hardware.sensors@2.X-subhal-mediatek.so', 'vendor/lib64/mt6897/libcam.utils.sensorprovider.so'): blob_fixup()
         .add_needed('android.hardware.sensors@1.0-convert-shared.so'),
-    'vendor/lib64/hw/mt6879/vendor.mediatek.hardware.pq@2.15-impl.so': blob_fixup()
+    'vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq@2.15-impl.so': blob_fixup()
         .add_needed('android.hardware.sensors@1.0-convert-shared.so')
         .replace_needed('libutils.so', 'libutils-v32.so'),
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .add_needed('libstagefright_foundation-v33.so')
         .replace_needed('libutils.so','libutils-v32.so')
         .replace_needed('libalsautils.so','libalsautils-v31.so'),
-    ('vendor/lib64/mt6879/libcam.hal3a.v3.so', 'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
+    ('vendor/lib64/mt6897/libcam.hal3a.v3.so', 'vendor/lib64/hw/hwcomposer.mtk_common.so'): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
-    ('vendor/lib/mt6879/libneuralnetworks_sl_driver_mtk_prebuilt.so', 'vendor/lib64/mt6879/libneuralnetworks_sl_driver_mtk_prebuilt.so', 
+    ('vendor/lib/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so', 'vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so', 
      'vendor/lib64/libstfactory-vendor.so', 'vendor/lib/libnvram.so', 'vendor/lib64/libnvram.so',
      'vendor/lib/libsysenv.so', 'vendor/lib64/libsysenv.so', 'vendor/lib/libtflite_mtk.so', 'vendor/lib64/libtflite_mtk.so'): blob_fixup()
         .add_needed('libbase_shim.so'),
-    ('vendor/lib64/hw/mt6879/android.hardware.camera.provider@2.6-impl-mediatek.so','vendor/lib64/mt6879/libmtkcam_stdutils.so',
+    ('vendor/lib64/hw/mt6897/android.hardware.camera.provider@2.6-impl-mediatek.so','vendor/lib64/mt6897/libmtkcam_stdutils.so',
      'vendor/lib64/sensors.moto.so'): blob_fixup()
         .replace_needed('libutils.so', 'libutils-v32.so')
         .add_needed('libbase_shim.so'),
@@ -78,11 +78,11 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('1.1', '1.2')
         .regex_replace('@1.0', '@1.2')
         .regex_replace('default9', 'default'),
-    ('vendor/lib64/mt6879/lib3a.flash.so', 'vendor/lib64/mt6879/lib3a.ae.stat.so',
-     'vendor/lib64/mt6879/lib3a.sensors.flicker.so', 'vendor/lib64/mt6879/lib3a.sensors.color.so',
+    ('vendor/lib64/mt6897/lib3a.flash.so', 'vendor/lib64/mt6897/lib3a.ae.stat.so',
+     'vendor/lib64/mt6897/lib3a.sensors.flicker.so', 'vendor/lib64/mt6897/lib3a.sensors.color.so',
      'vendor/lib64/lib3a.ae.pipe.so'): blob_fixup()
         .add_needed('liblog.so'),
-    'vendor/lib64/mt6879/libmnl.so': blob_fixup()
+    'vendor/lib64/mt6897/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
     'vendor/lib64/com.motorola.hardware.biometric.fingerprint@1.1.so': blob_fixup()
         .add_needed('libshim_fp.so'),
@@ -99,8 +99,8 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'manaus',
-    'motorola',
+    'fuji',
+    'fcnt',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,

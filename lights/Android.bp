@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.lights-service.manaus",
+    name: "android.hardware.lights-service.fuji",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.lights.manaus.rc"],
-    vintf_fragments: ["android.hardware.lights.manaus.xml"],
+    init_rc: ["android.hardware.lights.fuji.rc"],
+    vintf_fragments: ["android.hardware.lights.fuji.xml"],
     vendor: true,
     shared_libs: [
         "libbase",

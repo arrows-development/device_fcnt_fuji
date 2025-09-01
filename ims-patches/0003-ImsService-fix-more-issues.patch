@@ -16,7 +16,7 @@ index f62b06d..0f6ff44 100644
 +++ b/smali/com/mediatek/ims/ImsPhoneStateListener.smali
 @@ -1,5 +1,5 @@
  .class public Lcom/mediatek/ims/ImsPhoneStateListener;
--.super Lcom/motorola/android/telephony/MotoExtPhoneStateListener;
+-.super Lcom/fcnt/android/telephony/MotoExtPhoneStateListener;
 +.super Landroid/telephony/PhoneStateListener;
  .source "ImsPhoneStateListener.java"
  
@@ -25,7 +25,7 @@ index f62b06d..0f6ff44 100644
  
  .field private mSIPInvateCache:Ljava/lang/StringBuffer;
  
--.field private mTelephony:Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-.field private mTelephony:Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +.field private mTelephony:Landroid/telephony/TelephonyManager;
  
  
@@ -34,7 +34,7 @@ index f62b06d..0f6ff44 100644
  
      move-result-object v0
  
--    invoke-direct {p0, v0}, Lcom/motorola/android/telephony/MotoExtPhoneStateListener;-><init>(Ljava/lang/Integer;)V
+-    invoke-direct {p0, v0}, Lcom/fcnt/android/telephony/MotoExtPhoneStateListener;-><init>(Ljava/lang/Integer;)V
 +    invoke-direct {p0, v0}, Landroid/telephony/PhoneStateListener;-><init>(Ljava/lang/Integer;)V
  
      .line 43
@@ -43,15 +43,15 @@ index f62b06d..0f6ff44 100644
      iput-object p1, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mContext:Landroid/content/Context;
  
      .line 75
--    new-instance v0, Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    new-instance v0, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    new-instance v0, Landroid/telephony/TelephonyManager;
  
      iget-object v1, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mContext:Landroid/content/Context;
  
--    invoke-direct {v0, v1, p2}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;I)V
+-    invoke-direct {v0, v1, p2}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;I)V
 +    invoke-direct {v0, v1, p2}, Landroid/telephony/TelephonyManager;-><init>(Landroid/content/Context;I)V
  
--    iput-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    iput-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    iput-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Landroid/telephony/TelephonyManager;
  
      .line 76
@@ -60,12 +60,12 @@ index f62b06d..0f6ff44 100644
      invoke-direct {p0, v0}, Lcom/mediatek/ims/ImsPhoneStateListener;->logd(Ljava/lang/String;)V
  
      .line 183
--    iget-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    iget-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    iget-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Landroid/telephony/TelephonyManager;
  
      const v1, 0x8000
  
--    invoke-virtual {v0, p0, v1}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;->listen(Lcom/motorola/android/telephony/MotoExtPhoneStateListener;I)V
+-    invoke-virtual {v0, p0, v1}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;->listen(Lcom/fcnt/android/telephony/MotoExtPhoneStateListener;I)V
 +    invoke-virtual {v0, p0, v1}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
  
      .line 184
@@ -74,12 +74,12 @@ index f62b06d..0f6ff44 100644
      invoke-direct {p0, v0}, Lcom/mediatek/ims/ImsPhoneStateListener;->logd(Ljava/lang/String;)V
  
      .line 188
--    iget-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    iget-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    iget-object v0, p0, Lcom/mediatek/ims/ImsPhoneStateListener;->mTelephony:Landroid/telephony/TelephonyManager;
  
      const/4 v1, 0x0
  
--    invoke-virtual {v0, p0, v1}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;->listen(Lcom/motorola/android/telephony/MotoExtPhoneStateListener;I)V
+-    invoke-virtual {v0, p0, v1}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;->listen(Lcom/fcnt/android/telephony/MotoExtPhoneStateListener;I)V
 +    invoke-virtual {v0, p0, v1}, Landroid/telephony/TelephonyManager;->listen(Landroid/telephony/PhoneStateListener;I)V
  
      .line 189
@@ -92,17 +92,17 @@ index 76b90fa..ff20ce6 100644
  
      .line 371
      .local v2, "voiceDomain":I
--    new-instance v3, Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    new-instance v3, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    new-instance v3, Landroid/telephony/TelephonyManager;
  
      iget-object v4, p0, Lcom/mediatek/ims/config/internal/ImsConfigEventReceiver$1;->val$context:Landroid/content/Context;
  
--    invoke-direct {v3, v4, v0}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;I)V
+-    invoke-direct {v3, v4, v0}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;I)V
 +    invoke-direct {v3, v4, v0}, Landroid/telephony/TelephonyManager;-><init>(Landroid/content/Context;I)V
  
      .line 372
--    .local v3, "mMotoExtTM":Lcom/motorola/android/telephony/MotoExtTelephonyManager;
--    invoke-virtual {v3}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;->getVoiceDomainSetting()I
+-    .local v3, "mMotoExtTM":Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
+-    invoke-virtual {v3}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;->getVoiceDomainSetting()I
 -
 -    move-result v4
 +    .local v3, "mMotoExtTM":Landroid/telephony/TelephonyManager;
@@ -115,7 +115,7 @@ index 76b90fa..ff20ce6 100644
      invoke-static {v4, v5}, Landroid/telephony/Rlog;->i(Ljava/lang/String;Ljava/lang/String;)I
  
 -    .line 374
--    invoke-virtual {v3, v2}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;->setVoiceDomainSetting(I)Z
+-    invoke-virtual {v3, v2}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;->setVoiceDomainSetting(I)Z
 -
      .line 376
      :cond_5
@@ -128,22 +128,22 @@ index 48d8c7b..ca5416e 100644
      add-int/lit8 v1, v1, -0x1
  
      .line 360
--    new-instance v2, Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    new-instance v2, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    new-instance v2, Landroid/telephony/TelephonyManager;
  
      iget-object v3, p0, Lcom/mediatek/ims/ril/ImsRadioIndication;->mRil:Lcom/mediatek/ims/ril/ImsRILAdapter;
  
      iget-object v3, v3, Lcom/mediatek/ims/ril/ImsRILAdapter;->mContext:Landroid/content/Context;
  
--    invoke-direct {v2, v3}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;)V
+-    invoke-direct {v2, v3}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;-><init>(Landroid/content/Context;)V
 -
 -    .line 361
--    .local v2, "motoExtTM":Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    .local v2, "motoExtTM":Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 -    if-gtz v1, :cond_2
 -
 -    iget v3, p0, Lcom/mediatek/ims/ril/ImsRadioIndication;->mPhoneId:I
 -
--    invoke-virtual {v2, v3}, Lcom/motorola/android/telephony/MotoExtTelephonyManager;->getAndResetInTestEmergencyCall(I)Z
+-    invoke-virtual {v2, v3}, Lcom/fcnt/android/telephony/MotoExtTelephonyManager;->getAndResetInTestEmergencyCall(I)Z
 -
 -    move-result v3
 -
@@ -171,7 +171,7 @@ index 48d8c7b..ca5416e 100644
 -    invoke-virtual {v3}, Landroid/os/RegistrantList;->notifyRegistrants()V
 -
      .line 370
--    .end local v2    # "motoExtTM":Lcom/motorola/android/telephony/MotoExtTelephonyManager;
+-    .end local v2    # "motoExtTM":Lcom/fcnt/android/telephony/MotoExtTelephonyManager;
 +    .end local v2    # "motoExtTM":Landroid/telephony/TelephonyManager;
      :cond_2
      return-void

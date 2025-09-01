@@ -1,42 +1,65 @@
+# NFC-ST
+import /vendor/etc/init/hw/init.vendor.st21nfc.rc
+
+on property:ro.vendor.hw.dualsim=true
+   setprop persist.vendor.radio.multisim.config dsds
+
+on property:ro.vendor.hw.dualsim=false
+   setprop persist.vendor.radio.multisim.config ""
+
 on early-init
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_gauge_class nfg1000_fg_mmi smart_battery qpnp_adaptive_charge sensors_class leds-gpio awinic_sar sx937x_sar moto_mmap_fault
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules moto_sched mm_iosched moto_binder
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules qpnp_adaptive_charge sensors_class leds-gpio goodix_ppg_mmi moto_mmap_fault
 
-on early-init && property:ro.boot.radio=4
-    setprop ro.vendor.hw.fuelgauge int_fg
+on early-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules zram
 
-on early-init && property:ro.boot.radio=DOCOMO
-    setprop ro.vendor.hw.fuelgauge int_fg
+on late-init
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules moto_swap
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules aw86927
 
-on init
-    setprop ro.vendor.hw.fuelgauge ext_fg
+on post-fs
+    chown root system /mnt/vendor/makerlog
+    chmod 0771 /mnt/vendor/makerlog
+    mkdir /mnt/vendor/makerlog/Logs 0775 root system
+
+    chown system system /mnt/vendor/persist2
+    chmod 0771 /mnt/vendor/persist2
+    mkdir /mnt/vendor/persist2/Logs 0775 root system
+
+    chown system system /mnt/vendor/persist_oem
+    chmod 0771 /mnt/vendor/persist_oem
+
+    restorecon_recursive /mnt/vendor/makerlog
+    restorecon_recursive /mnt/vendor/persist2
+    restorecon_recursive /mnt/vendor/persist_oem
 
 on post-fs-data
-    wait /sys/class/leds/vibrator/trigger 1.5
-    write /sys/class/leds/vibrator/trigger "transient"
     # calibration
     mkdir /data/vendor/sensor 0774 system system
     # Sensor
-    chmod 0660 /dev/hf_manager
+    chmod 0760 /dev/hf_manager
     chown system system /dev/hf_manager
 
-    # config fingerprint
-    mkdir /data/vendor/.fps 0770 system vendor_fingerp
-    mkdir /mnt/vendor/persist/fps 0770 system system
-    mkdir /data/vendor/egis 0770 system vendor_fingerp
-    mkdir /data/vendor/egis/cqa 0770 system vendor_fingerp
-    mkdir /mnt/vendor/persist/egis 0770 system vendor_fingerp
-    mkdir /mnt/vendor/persist/goodix 0770 system vendor_fingerp
-    mkdir /data/vendor/gf_data 0770 system system
-
-    # Add for OIS hall test result
-    mkdir /mnt/vendor/persist/camera/ois_hall 0770 vendor_tcmd camera
-
     # Required by touchRec for write the touch data
-    mkdir /data/vendor/touchrec 0770 input input
+    mkdir /data/vendor/touchrec 0773 input input
     chown input input /data/vendor/touchrec/bootindex
     chown input input /data/vendor/touchrec/lastbootuuid
     chown input input /data/vendor/touchrec/touch_data.txt
     chmod 0664 /data/vendor/touchrec/touch_data.txt
+    chmod 0664 /data/vendor/touchrec/raw_data.bin
+    chown root input /sys/class/sensors/dt-gesture/enable
+    chmod 0660 /sys/class/sensors/dt-gesture/enable
+    chown root input /sys/class/sensors/dt-gesture/poll_delay
+    chmod 0660 /sys/class/sensors/dt-gesture/poll_delay
+    chown root input /sys/class/sensors/s-dt-gesture/enable
+    chmod 0660 /sys/class/sensors/s-dt-gesture/enable
+    chown root input /sys/class/sensors/s-dt-gesture/poll_delay
+    chmod 0660 /sys/class/sensors/s-dt-gesture/poll_delay
+    chown root input /sys/class/sensors/palm-gesture/enable
+    chmod 0660 /sys/class/sensors/palm-gesture/enable
+    chown root input /sys/class/sensors/palm-gesture/poll_delay
+    chmod 0660 /sys/class/sensors/palm-gesture/poll_delay
 
     # change dir permission
     mkdir /data/vendor/camera_dump
@@ -46,35 +69,22 @@ on post-fs-data
     # change camera sois save hall data
     mkdir /mnt/vendor/persist/camera/ois_hall_data 0770 vendor_tcmd camera
 
-on late-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -r -d /vendor/lib/modules zram
-    #moto algo params
-    chmod 0660 /sys/bus/platform/drivers/mtk_nanohub/algo_params
-    chown system system /sys/bus/platform/drivers/mtk_nanohub/algo_params
-
-    chown system system /sys/class/sensors/capsense_bottom_left/enable
-    chown system system /sys/class/sensors/capsense_bottom_left/poll_delay
-    chown system system /sys/class/sensors/capsense_bottom_right/enable
-    chown system system /sys/class/sensors/capsense_bottom_right/poll_delay
-    chown system system /sys/class/sensors/capsense_top_left/enable
-    chown system system /sys/class/sensors/capsense_top_left/poll_delay
-    chown system system /sys/class/sensors/capsense_top_mid/enable
-    chown system system /sys/class/sensors/capsense_top_mid/poll_delay
-    chown system system /sys/class/sensors/capsense_top_right/enable
-    chown system system /sys/class/sensors/capsense_top_right/poll_delay
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules moto_mm moto_swap
-
-service capsense_reset /vendor/bin/capsense_reset
-    class core
-    user system
-    group system input
-    disabled
+on init
+    insmod /vendor/lib/modules/st54lnfc.ko
+    insmod /vendor/lib/modules/st54lspi.ko
 
 service nxpnfcinfo /system/vendor/bin/nxpnfcinfo
     class late_start
     group nfc
     user system
     oneshot
+
+service vendor.modem-rfs-sh /vendor/bin/init.mmi.modem-rfs.sh loop 600
+    class late_start
+    user root
+    group log system radio
+    oneshot
+
 
 on property:ro.vendor.hw.nfc=nq
    insmod /vendor/lib/modules/nxp_i2c.ko
@@ -93,13 +103,10 @@ on property:ro.vendor.hw.nfc=ese_nq
    chmod 0666 /dev/p73
 
 on property:sys.boot_completed=1
-    start capsense_reset
     chown system system /sys/class/touchscreen/primary/stylus_mode
     chmod 0660 /sys/class/touchscreen/primary/stylus_mode
     chown system system /sys/class/touchscreen/primary/stowed
     chmod 0660 /sys/class/touchscreen/primary/stowed
-    write /proc/sys/vm/dirty_background_bytes 26214400
-    write /proc/sys/vm/dirty_bytes 104857600
 
 # Turn on led to indicate device on in factory mode
 on property:ro.bootmode=mot-factory
@@ -107,38 +114,67 @@ on property:ro.bootmode=mot-factory
 
 on early-boot
     # Permission for Health Storage HAL
-    chown system system /sys/devices/platform/112b0000.ufshci/manual_gc
-    chown system system /sys/devices/platform/112b0000.ufshci/ufshid/trigger
+    chown system system /sys/devices/platform/soc/112b0000.ufshci/manual_gc
+    chown system system /sys/devices/platform/soc/112b0000.ufshci/ufshid/trigger
+
+    # for ghost log capture
+    chmod 0444 /dev/tp_tools
+
+    #ppg device
+    chown system system /dev/goodix_health
+    chmod 0660 /dev/goodix_health
+
+    mkdir /mnt/vendor/persist/ppg 0775 system vendor_tcmd
+    write /mnt/vendor/persist/ppg/ppg_flag.txt  0
+    chown system system /mnt/vendor/persist/ppg/ppg_flag.txt
+    chmod 0660 /mnt/vendor/persist/ppg/ppg_flag.txt
+
+    chown system system /mnt/vendor/persist/ppg/ppg_green_cover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/ppg_green_cover.txt
+
+    chown system system /mnt/vendor/persist/ppg/ppg_green_uncover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/ppg_green_uncover.txt
+
+    chown system system /mnt/vendor/persist/ppg/ppg_ir_cover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/ppg_ir_cover.txt
+
+    chown system system /mnt/vendor/persist/ppg/ppg_ir_uncover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/ppg_ir_uncover.txt
+
+    write /mnt/vendor/persist/ppg/default_ppg_green_cover.txt  009A1D20
+    chown system system /mnt/vendor/persist/ppg/default_ppg_green_cover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/default_ppg_green_cover.txt
+
+    write /mnt/vendor/persist/ppg/default_ppg_green_uncover.txt  00802C80
+    chown system system /mnt/vendor/persist/ppg/default_ppg_green_uncover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/default_ppg_green_uncover.txt
+
+    write /mnt/vendor/persist/ppg/default_ppg_ir_cover.txt  00864700
+    chown system system /mnt/vendor/persist/ppg/default_ppg_ir_cover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/default_ppg_ir_cover.txt
+
+    write /mnt/vendor/persist/ppg/default_ppg_ir_uncover.txt  00802C80
+    chown system system /mnt/vendor/persist/ppg/default_ppg_ir_uncover.txt
+    chmod 0660 /mnt/vendor/persist/ppg/default_ppg_ir_uncover.txt
 
 on boot
-    # change permission for capsensor
-    chown system system /sys/class/capsense/reset
-    chown system system /sys/class/capsense/int_state
-    chown radio system /sys/class/capsense/reg
-    chown radio system /sys/class/capsense/fw_download_status
-    chown system system /sys/class/capsense/mode
-    chmod 0660 /sys/class/capsense/reset
-    chmod 0660 /sys/class/capsense/int_state
-    chmod 0660 /sys/class/capsense/reg
-    chmod 0660 /sys/class/capsense/fw_download_status
-    chmod 0660 /sys/class/capsense/mode
+    write /sys/block/sdc/queue/scheduler kyber
+    write /sys/block/sdc/queue/iosched/read_lat_nsec 100000
+    write /sys/block/sdc/queue/iosched/write_lat_nsec 500000
 
-    # Change ownership and permission for charge pump factory testing
-    chown system system /sys/class/power_supply/cp-master/voltage_now
-    chown system system /sys/class/power_supply/cp-master/device/force_chg_auto_enable
-    chown system system /sys/class/power_supply/cp-slave/device/force_chg_auto_enable
-    chmod 0644 /sys/class/power_supply/cp-master/voltage_now
-    chmod 0664 /sys/class/power_supply/cp-master/device/force_chg_auto_enable
-    chmod 0664 /sys/class/power_supply/cp-slave/device/force_chg_auto_enable
+    #schedule_chg
+    chown system system /sys/class/oem-battery/schedule_chg
+    chmod 0666 /sys/class/oem-battery/schedule_chg
 
-    chown system system /sys/class/power_supply/cp-standalone/voltage_now
-    chown system system /sys/class/power_supply/cp-standalone/device/force_chg_auto_enable
-    chmod 0644 /sys/class/power_supply/cp-standalone/voltage_now
-    chmod 0664 /sys/class/power_supply/cp-standalone/device/force_chg_auto_enable
-
-# Set adaptive charging perms for HAL
+    # Set adaptive charging perms for HAL
     chown system system /sys/module/qpnp_adaptive_charge/parameters/upper_limit
     chown system system /sys/module/qpnp_adaptive_charge/parameters/lower_limit
+
+    # touch screen calibration file
+    mkdir /mnt/vendor/persist/touch
+    chown vendor_tcmd system /mnt/vendor/persist/touch
+    chmod 0775 /mnt/vendor/persist/touch
+
     # touch api
     chown system system /sys/class/touchscreen/primary/interpolation
     chmod 0660 /sys/class/touchscreen/primary/interpolation
@@ -150,37 +186,85 @@ on boot
     chmod 0660 /sys/class/touchscreen/primary/gesture
     chown system system /sys/class/touchscreen/primary/sample
     chmod 0660 /sys/class/touchscreen/primary/sample
+    chown system system /sys/class/touchscreen/primary/log_trigger
+    chmod 0660 /sys/class/touchscreen/primary/log_trigger
+    chown system system /sys/class/touchscreen/primary/rotate
+    chmod 0660 /sys/class/touchscreen/primary/rotate
+    chown system system /sys/class/touchscreen/primary/sensitivity
+    chmod 0660 /sys/class/touchscreen/primary/sensitivity
+    chown system system /sys/class/touchscreen/primary/stowed
+    chmod 0660 /sys/class/touchscreen/primary/stowed
+    chown system system /sys/class/touchscreen/primary/pocket_mode
+    chmod 0660 /sys/class/touchscreen/primary/pocket_mode
 
     # change permission for goodix TP
     chmod 0664 /dev/gtp_tools
 
-    # set aw smart pa node can be accessed by audio group
-    chown root audio /sys/devices/platform/11e02000.i2c/i2c-6/6-0035/cali_re
-    chmod 0664 /sys/devices/platform/11e02000.i2c/i2c-6/6-0035/cali_re
+    # set tfa9865 smart pa node can be accessed by audio group
+    chown root audio /sys/devices/platform/11d02000.i2c/i2c-7/7-0034/cal
+    chmod 0664 /sys/devices/platform/11d02000.i2c/i2c-7/7-0034/cal
 
+    #set vibrator gain value
+    chown system system /sys/class/leds/vibrator/gain
+    chmod 0660 /sys/class/leds/vibrator/gain
+    chown system system /sys/class/leds/vibrator/strength
+    chmod 0660 /sys/class/leds/vibrator/strength
 
+on boot && property:ro.bootmode=mot-factory
+    # Change ownership and permission for fuji charge pump factory testing
+    chown system system /sys/class/power_supply/cp-master/voltage_now
+    chown system system /sys/class/power_supply/cp-master/device/force_chg_auto_enable
+    chown system system /sys/class/power_supply/cp-slave/device/force_chg_auto_enable
+    chmod 0644 /sys/class/power_supply/cp-master/voltage_now
+    chmod 0664 /sys/class/power_supply/cp-master/device/force_chg_auto_enable
+    chmod 0664 /sys/class/power_supply/cp-slave/device/force_chg_auto_enable
+
+    # Change ownership and permission for charge pump factory testing
+    chown vendor_tcmd system /sys/class/power_supply/cp-standalone/voltage_now
+    chown vendor_tcmd system /sys/class/power_supply/cp-standalone/device/force_chg_auto_enable
+    chmod 0600 /sys/class/power_supply/cp-standalone/device/force_chg_auto_enable
+
+    #change flip battery charging test command file access permission
+    chown vendor_tcmd system /sys/class/power_supply/charger/device/chg_en
+    chown vendor_tcmd system /sys/class/power_supply/charger/device/charger_suspend
+    chown vendor_tcmd system /sys/class/power_supply/charger/input_current_limit
+    chown vendor_tcmd system /sys/class/power_supply/charger/constant_charge_current
+
+    write /proc/sys/vm/dirty_background_bytes 26214400
+    write /proc/sys/vm/dirty_bytes 104857600
+
+    # CLI touch factory test
+    chown vendor_tcmd system /proc/goodix_ts.0/auto_test
+    chown vendor_tcmd system /proc/goodix_ts.0/auto_test_result
 on fs
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_relay touchscreen_mmi goodix_brl_mmi focaltech_v3
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_relay touchscreen_u_mmi goodix_brl_u_mmi focaltech_touch_v3_u_mmi
 
 # camera eeprom calibration
 on property:sys.boot_completed=1
-    chmod 0644 /data/vendor/camera_dump/mot_ov50a_eeprom.bin
-    chmod 0644 /data/vendor/camera_dump/mot_hi1336_eeprom.bin
-    chmod 0644 /data/vendor/camera_dump/mot_ov32b_eeprom.bin
+    chmod 0644 /data/vendor/camera_dump/mot_imx896_eeprom.bin
+    chmod 0644 /data/vendor/camera_dump/mot_s5kjns_eeprom.bin
+    chmod 0644 /data/vendor/camera_dump/mot_s5kjns_uw_eeprom.bin
+    write /sys/block/sdc/queue/iosched/boost 1
 
-# Batt_health init
-on post-fs-data
-    # for batt_health server
-    mkdir /mnt/vendor/persist/batt_health 0770 vendor_pwric vendor_pwric
-on property:sys.boot_completed=1 && property:ro.build.type=userdebug
-    start vendor.batt_health
-on charger && property:ro.build.type=userdebug
-    start vendor.batt_health
-service vendor.batt_health /vendor/bin/batt_health
-    class late_start
-    user vendor_pwric
-    group vendor_pwric cache net_admin log
+#charge_only_mode
+service factory.charge_only_mode /vendor/bin/charge_only_mode
+    user root
+    group graphics system input
     disabled
+
+on charger && property:ro.vendor.build.motfactory=1
+    start factory.charge_only_mode
+
+service vendor.charge_only_mode /vendor/bin/charge_only_mode
+    user system
+    group graphics system input
+    disabled
+
+on charger && property:ro.vendor.build.motfactory=""
+    start vendor.charge_only_mode
+
+on charger && property:ro.build.type=userdebug
+    setprop persist.vendor.pstore.model 1
 
 on moto-post-fs-data-fs-tune
     write /sys/block/${dev.mnt.dev.root}/queue/read_ahead_kb 2048
@@ -203,3 +287,12 @@ on moto-boot-completed-fs-tune
     write /sys/block/${dev.mnt.dev.vendor}/queue/read_ahead_kb 512
     write /sys/block/${dev.mnt.dev.vendor_dlkm}/queue/read_ahead_kb 512
     write /sys/block/${dev.mnt.dev.data}/queue/read_ahead_kb 512
+
+on early-init && property:ro.vendor.build.motfactory=1
+    setprop vendor.debug.hwc.plat_switch 0x13019
+
+
+on property:sys.directpower.supply=0
+    write sys/class/oem-battery/schedule_chg 0
+on property:sys.directpower.supply=1
+    write sys/class/oem-battery/schedule_chg 1

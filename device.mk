@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/motorola/manaus
+DEVICE_PATH := device/fcnt/fuji
 
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
@@ -140,7 +140,7 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     libshim_fp \
-    android.hardware.biometrics.fingerprint@2.3-service.manaus \
+    android.hardware.biometrics.fingerprint@2.3-service.fuji \
     vendor.egistec.hardware.fingerprint@4.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -167,7 +167,7 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    fstab.mt6879 \
+    fstab.mt6897 \
     init.sku.rc \
     init.connectivity.rc \
     init.connectivity.common.rc \
@@ -175,21 +175,22 @@ PRODUCT_PACKAGES += \
     init.mmi.overlay.rc \
     init.mmi.rc \
     init.modem.rc \
-    init.recovery.mt6879.rc \
-    init.mt6879.rc \
-    init.mt6879.usb.rc \
-    init.mt6879.power.rc \
+    init.recovery.mt6897.rc \
+    init.mt6897.rc \
+    init.mt6897.usb.rc \
+    init.mt6897.power.rc \
     init.mtkgki.rc \
     init.oem.hw.sh \
     init.project.rc \
     init.sensor_2_0.rc \
-    ueventd.mt6879.rc
+    ueventd.mt6897.rc
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/init/fstab.mt6879:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6879
+    $(DEVICE_PATH)/init/fstab.mt6897:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.mt6897
 
 # Keylayout
 PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/idc/,$(TARGET_COPY_OUT_VENDOR)/usr/idc) \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout)
 
 # Keymint
@@ -210,7 +211,7 @@ PRODUCT_COPY_FILES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.manaus
+    android.hardware.lights-service.fuji
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -248,16 +249,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayManaus \
-    SettingsResOverlayManaus \
-    SystemUIOverlayManaus \
+    FrameworkResOverlayFuji \
+    SettingsResOverlayFuji \
+    SystemUIOverlayFuji \
     TetheringConfigOverlay \
     WifiOverlay \
     EuiccOverlay \
-    TelephonyOverlayManaus
-
-PRODUCT_PACKAGES += \
-    RegulatoryOverlayXT2307-3
+    TelephonyOverlayFuji
 
 # Power
 PRODUCT_PACKAGES += \
@@ -274,7 +272,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6879
+TARGET_BOARD_PLATFORM := mt6897
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -288,7 +286,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.manaus-multihal
+    android.hardware.sensors@2.1-service.fuji-multihal
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 31
@@ -297,7 +295,7 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek \
-    hardware/motorola \
+    hardware/fcnt \
     hardware/mediatek/libmtkperf_client \
     hardware/google/pixel \
     hardware/google/interfaces
@@ -320,7 +318,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.manaus
+    vendor.qti.hardware.vibrator.service.fuji
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -338,4 +336,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/motorola/manaus/manaus-vendor.mk)
+$(call inherit-product, vendor/fcnt/fuji/fuji-vendor.mk)
