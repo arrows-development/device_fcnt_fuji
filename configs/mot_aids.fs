@@ -36,3 +36,6 @@ value: 5120
 
 [AID_VENDOR_PROD_PERSIST]
 value: 5121
+
+[AID_VENDOR_APUSYS]
+value: 5200
