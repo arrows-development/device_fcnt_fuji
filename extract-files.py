@@ -162,6 +162,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_unlock'),
     'vendor/lib64/libcamera2ndk_vendor.so': blob_fixup()
         .replace_needed('android.frameworks.cameraservice.device-V1-ndk.so', 'android.frameworks.cameraservice.device-V3-ndk.so'),
+    'vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq_aidl-impl.so': blob_fixup()
+        .add_needed('libui_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
