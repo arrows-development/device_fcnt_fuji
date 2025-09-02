@@ -10,10 +10,6 @@
         fcnt/security/lib/ese_tools/mtk/SecureElement/secure_element-service.xml
 -->
 <manifest version="7.0" type="device">
-    <hal format="aidl">
-        <name>android.hardware.nfc</name>
-        <fqname>INfc/default</fqname>
-    </hal>
     <hal format="aidl" override="true">
         <name>android.hardware.radio.data</name>
         <version>2</version>
