@@ -957,7 +957,7 @@ vendor/lib64/libapu_mdw.so
 vendor/lib64/libapu_mdw_batch.so
 vendor/lib64/libapusys.so
 vendor/lib64/libarmnn.so
-vendor/lib64/libarmnn_ndk.mtk.vndk.so
+vendor/lib64/libarmnn_ndk.mtk.vndk.so;FIX_SONAME
 vendor/lib64/libcmdl.so
 vendor/lib64/libcmdl_ndk.mtk.vndk.so
 vendor/lib64/libneuroeara.so
