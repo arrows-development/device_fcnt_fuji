@@ -832,7 +832,7 @@ product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
 product/etc/felica/common.cfg
 product/etc/felica/mfm.cfg
 product/etc/felica/mfs.cfg
-product/priv-app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED;SKIPAPKCHECKS
+product/priv-app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
 
 # Fingerprint
 vendor/bin/fpc_tee_test
