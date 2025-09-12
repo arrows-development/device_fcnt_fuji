@@ -1,0 +1,17 @@
+# fastboot-info for fuji
+version 1
+flash vendor_boot
+flash --apply-vbmeta vbmeta
+flash vbmeta_system
+reboot fastboot
+flash boot
+flash init_boot
+update-super
+flash system
+flash system_dlkm
+flash system_ext
+flash vendor
+flash vendor_dlkm
+flash product
+if-wipe erase userdata
+if-wipe erase metadata

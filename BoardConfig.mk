@@ -61,6 +61,9 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml \
     $(DEVICE_PATH)/configs/hidl/framework_compatibility_matrix.xml
 
+# Fastboot
+TARGET_BOARD_FASTBOOT_INFO_FILE := $(DEVICE_PATH)/fastboot-info.txt
+
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/mot_aids.fs
 
