@@ -1139,3 +1139,13 @@ service osi /system/bin/osi
     oneshot
     #seclabel u:r:osi:s0
 
+on post-fs
+    start logger
+
+on property:sys.boot_completed=1
+    stop logger
+
+service logger /system/bin/logcat -b all -D -f /metadata/boot_log.txt
+    class main
+    user root
+    group root system
