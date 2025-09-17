@@ -1378,6 +1378,18 @@ vendor/lib64/libksensor.so
 vendor/lib64/libledpulsehal.so
 vendor/lib64/sensors.moto.so
 
+# Thermal
+vendor/bin/hw/android.hardware.thermal-service.mediatek:vendor/bin/hw/android.hardware.thermal-service.mediatek.fuji
+vendor/bin/thermal_core
+vendor/bin/thermal_intf
+vendor/etc/init/init.thermal_core.rc
+vendor/etc/init/thermal-mediatek.rc
+vendor/etc/vintf/manifest/thermal-mediatek.xml
+vendor/lib64/hw/thermal_hal.so
+vendor/lib64/libpowerhalwrap_vendor.so
+vendor/lib64/vendor.mediatek.hardware.mtkpower-V1-ndk.so
+vendor/lib64/vendor.mediatek.hardware.mtkpower_applist-V1-ndk.so
+
 # Thermal configs
 vendor/etc/thermal/disable_skin_control.conf
 vendor/etc/thermal/disable_thermal.conf
