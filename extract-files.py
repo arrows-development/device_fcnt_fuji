@@ -158,6 +158,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('android.frameworks.cameraservice.device-V1-ndk.so', 'android.frameworks.cameraservice.device-V3-ndk.so'),
     'vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq_aidl-impl.so': blob_fixup()
         .add_needed('libui_shim.so'),
+    'vendor/etc/init/thermal-mediatek.rc': blob_fixup()
+        .regex_replace('android.hardware.thermal-service.mediatek', 'android.hardware.thermal-service.mediatek.fuji'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
