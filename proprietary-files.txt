@@ -1452,6 +1452,14 @@ vendor/lib64/vendor.trustonic.tee.tui@1.0.so
 vendor/lib64/vendor.trustonic.tee@1.0.so
 vendor/lib64/vendor.trustonic.tee@1.1.so
 
+# USB
+vendor/bin/hw/android.hardware.usb-aidl-service.mediatekv1.0
+vendor/bin/hw/android.hardware.usb.gadget-aidl-service.mediatekv1.0
+vendor/etc/init/android.hardware.usb-aidl-service.mediatek.rc
+vendor/etc/init/android.hardware.usb.gadget-aidl-service.mediatek.rc
+vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
+vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
+
 # VPU
 vendor/lib64/libmvpu_cic_ci_compiler.so
 vendor/lib64/libmvpu_cic_ci_compiler_25.so
