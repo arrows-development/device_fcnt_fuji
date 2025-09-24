@@ -239,6 +239,9 @@ PRODUCT_PACKAGES += \
     EuiccOverlay \
     TelephonyOverlayFuji
 
+PRODUCT_PACKAGES += \
+    RegulatoryInfoOverlayM08
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr \
