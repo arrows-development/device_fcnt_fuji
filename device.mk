@@ -133,6 +133,10 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
+# Felica (docomo)
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/felica_docomo/,$(TARGET_COPY_OUT_PRODUCT)/etc/felica_docomo/)
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     com.motorola.hardware.biometric.fingerprint@1.0.vendor
@@ -242,7 +246,8 @@ PRODUCT_PACKAGES += \
     TelephonyOverlayFuji
 
 PRODUCT_PACKAGES += \
-    RegulatoryInfoOverlayM08
+    RegulatoryInfoOverlayM08 \
+    RegulatoryInfoOverlayF-51F
 
 # Power
 PRODUCT_PACKAGES += \
@@ -278,6 +283,11 @@ PRODUCT_PACKAGES += \
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 34
+
+# SKU
+# Variant Properties
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,product.*.prop,$(LOCAL_PATH)/props/sku/,$(TARGET_COPY_OUT_PRODUCT))
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

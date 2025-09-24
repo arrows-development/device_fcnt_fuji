@@ -296,3 +296,7 @@ on property:sys.directpower.supply=0
     write sys/class/oem-battery/schedule_chg 0
 on property:sys.directpower.supply=1
     write sys/class/oem-battery/schedule_chg 1
+
+# Bind docomo felica configs if docomo SKU
+on property:sys.boot_completed=1 && property:ro.boot.hardware.sku=RA07504-101X
+    mount none /product/etc/felica_docomo /product/etc/felica bind
