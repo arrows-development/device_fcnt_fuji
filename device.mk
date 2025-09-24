@@ -15,6 +15,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Inherit generic_ramdisk product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 
+# Inherit common MediaTek IMS
+$(call inherit-product, vendor/mediatek/ims/ims.mk)
+
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -159,10 +162,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
-# IMS
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/configs/permissions/privapp-permissions-com.mediatek.ims.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-com.mediatek.ims.xml
-
 # Init
 PRODUCT_PACKAGES += \
     fstab.mt6897 \
@@ -242,8 +241,7 @@ PRODUCT_PACKAGES += \
     SystemUIOverlayFuji \
     TetheringConfigOverlay \
     WifiOverlay \
-    EuiccOverlay \
-    TelephonyOverlayFuji
+    EuiccOverlay
 
 PRODUCT_PACKAGES += \
     RegulatoryInfoOverlayM08 \
