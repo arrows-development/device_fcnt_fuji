@@ -1,0 +1,4 @@
+# fuji project sku
+
+on property:ro.boot.hardware.sku="RA07504-101X"
+    mount none /product/etc/felica_docomo /product/etc/felica bind

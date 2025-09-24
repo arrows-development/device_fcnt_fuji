@@ -1,0 +1,12 @@
+#
+# RA07504-101X variant specific props
+#
+
+ro.product.bootimage.model=F-51F
+ro.product.model=F-51F
+ro.product.odm.model=F-51F
+ro.product.product.model=F-51F
+ro.product.system.model=F-51F
+ro.product.system_ext.model=F-51F
+ro.product.vendor.model=F-51F
+ro.product.vendor_dlkm.model=F-51F

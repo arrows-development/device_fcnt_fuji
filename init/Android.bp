@@ -31,6 +31,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+    name: "init.fuji.sku.rc",
+    src: "init.fuji.sku.rc",
+    sub_dir: "init",
+    vendor: true,
+}
+
+prebuilt_etc {
     name: "init_conninfra.rc",
     src: "init_conninfra.rc",
     relative_install_path: "init",
