@@ -91,8 +91,11 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('OFFHOST_ROUTE_ESE={01}', 'OFFHOST_ROUTE_ESE={C0}')
         .add_line_if_missing('DEFAULT_NFCF_ROUTE=0xC0'),
     'vendor/bin/hw/android.hardware.biometrics.fingerprint-service.fpc': blob_fixup()
+        .binary_regex_replace(b'/virtual', b'/default')
         .replace_needed('android.hardware.biometrics.common-V3-ndk.so', 'android.hardware.biometrics.common-V4-ndk.so')
         .replace_needed('android.hardware.biometrics.fingerprint-V3-ndk.so', 'android.hardware.biometrics.fingerprint-V4-ndk.so'),
+    'vendor/etc/vintf/manifest/manifest_IMoto_AIDL_Fingerprint.xml': blob_fixup()
+        .regex_replace('IFingerprint/virtual', 'IFingerprint/default'),
     'vendor/lib64/mt6897/libmtkcam_hal_aidl_common.so': blob_fixup()
         .replace_needed('android.hardware.camera.common-V2-ndk.so', 'android.hardware.camera.common-V1-ndk.so'),
     'vendor/lib64/libbluetooth_audio_session_aidl.so': blob_fixup()
