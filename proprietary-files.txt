@@ -1465,6 +1465,17 @@ vendor/etc/init/android.hardware.usb.gadget-aidl-service.mediatek.rc
 vendor/etc/vintf/manifest/android.hardware.usb-aidl-service.mediatek.xml
 vendor/etc/vintf/manifest/android.hardware.usb.gadget-aidl-service.mediatek.xml
 
+# Vibrator
+vendor/bin/hw/android.hardware.vibrator-service.mediatek
+vendor/etc/init/vibrator-mtk-default.rc
+vendor/etc/vintf/manifest/vibrator-mtk-default.xml
+vendor/firmware/haptic_ram.bin
+vendor/lib64/hw/vibrator.default.so
+vendor/lib64/libaacvibrator.so
+vendor/lib64/libtiktapvibrator.so
+vendor/lib64/vendor.aac.hardware.richtap.vibrator-V1-ndk.so
+vendor/lib64/vendor.awinic.hardware.tiktap.vibrator-V1-ndk.so
+
 # VPU
 vendor/lib64/libmvpu_cic_ci_compiler.so
 vendor/lib64/libmvpu_cic_ci_compiler_25.so
