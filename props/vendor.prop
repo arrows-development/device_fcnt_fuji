@@ -164,9 +164,7 @@ ro.vendor.mtk_f2fs_enable=1
 ro.netflix.bsp_rev=MTK6855-35905-1
 
 # NFC
-persist.vendor.nfc.config_file_name=libnfc-nxp_220.conf
-persist.vendor.nfc.config_secfile_name=libnfc-sec-nci.conf
-persist.vendor.nfc.reset_after_sim_plug_in=true
+init.svc.vendor.stflashtool=stopped
 
 # Neural Networks
 debug.mtk_tflite.target_nnapi=29
