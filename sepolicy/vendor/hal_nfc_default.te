@@ -2,3 +2,5 @@ set_prop(hal_nfc_default, vendor_nfc_prop)
 get_prop(hal_nfc_default, vendor_nfc_prop)
 get_prop(hal_nfc_default, vendor_sku_prop)
 get_prop(hal_nfc_default, vendor_mot_prop)
+
+allow hal_nfc_default secure_element_service:service_manager find;

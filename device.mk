@@ -226,6 +226,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_NFC_SKU)/android.hardware.nfc.ese.xml \
     frameworks/native/data/etc/android.hardware.se.omapi.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_NFC_SKU)/android.hardware.se.omapi.ese.xml)
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/nfcee_access.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/nfcee_access.xml
+
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -235,7 +238,8 @@ PRODUCT_PACKAGES += \
     SystemUIOverlayFuji \
     TetheringConfigOverlay \
     WifiOverlay \
-    EuiccOverlay
+    EuiccOverlay \
+    SecureElementOverlayFuji
 
 PRODUCT_PACKAGES += \
     RegulatoryInfoOverlayM08 \
