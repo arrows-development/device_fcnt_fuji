@@ -22,4 +22,5 @@ allow hal_sensors_default sensorlist_device:chr_file rw_file_perms;
 allow hal_sensors_default vendor_sysfs_input:dir r_dir_perms;
 allow hal_sensors_default vendor_sysfs_input:file rw_file_perms;
 allow hal_sensors_default hal_audio_default:unix_stream_socket connectto;
+allow hal_sensors_default goodix_health_device:chr_file rw_file_perms;
 get_prop(hal_sensors_default, vendor_mot_prop)

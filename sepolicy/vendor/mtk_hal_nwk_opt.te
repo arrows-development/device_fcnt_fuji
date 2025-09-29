@@ -1,0 +1,7 @@
+type mtk_hal_nwk_opt_service, service_manager_type;
+
+vndbinder_use(mtk_hal_nwk_opt)
+
+binder_call(mtk_hal_nwk_opt, servicemanager)
+
+add_service(mtk_hal_nwk_opt, mtk_hal_nwk_opt_service)
