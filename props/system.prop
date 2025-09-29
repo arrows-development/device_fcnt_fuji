@@ -2,6 +2,9 @@
 persist.vendor.camera.privapp.list=org.lineageos.aperture,com.motorola.camera5
 vendor.camera.aux.packagelist=org.lineageos.aperture,com.motorola.camera5
 
+# Display
+sys.brightness.disable_gamma_conversion=true
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
