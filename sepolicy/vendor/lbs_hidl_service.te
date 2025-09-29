@@ -1,0 +1,4 @@
+binder_use(lbs_hidl_service)
+binder_call(lbs_hidl_service, servicemanager)
+
+add_service(lbs_hidl_service, mtk_hal_lbs_service)

@@ -21,6 +21,15 @@ persist.vendor.tl.               u:object_r:vendor_mot_prop:s0
 persist.vendor.nfc. u:object_r:vendor_nfc_prop:s0
 vendor.nfc.fw_status u:object_r:vendor_nfc_prop:s0
 
+# Secure Element
+vendor.ese.                              u:object_r:vendor_mot_prop:s0
+persist.vendor.ese.                      u:object_r:vendor_mot_prop:s0
+ro.vendor.ese.                           u:object_r:vendor_mot_prop:s0
+persist.vendor.se.                       u:object_r:vendor_mot_prop:s0
+
 # SKU
 ro.boot.product.hardware.sku u:object_r:vendor_sku_prop:s0
 ro.vendor.product.hardware.sku.variant  u:object_r:vendor_sku_prop:s0
+
+# TEE
+ro.vendor.trustonic.ready u:object_r:vendor_trustonic_prop:s0 exact bool
