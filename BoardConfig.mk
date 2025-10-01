@@ -213,3 +213,4 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 
 # Inherit the proprietary files
 include vendor/fcnt/fuji/BoardConfigVendor.mk
+include vendor/fcnt/fuji-motcamera/BoardConfigVendor.mk
