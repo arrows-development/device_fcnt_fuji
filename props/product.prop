@@ -1,3 +1,6 @@
+# Camera
+ro.com.google.lens.oem_camera_package=com.motorola.camera5
+
 # e-SIM
 masterclear.allow_retain_esim_profiles_after_fdr=1
 
