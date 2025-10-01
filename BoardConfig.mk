@@ -43,6 +43,9 @@ TARGET_DYNAMIC_64_32_DRMSERVER := true
 # Include 64-bit mediaserver to support 64-bit only devices
 TARGET_DYNAMIC_64_32_MEDIASERVER := true
 
+# Enable 64-bit for non-zygote.
+ZYGOTE_FORCE_64 := true
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := fuji
 TARGET_NO_BOOTLOADER := true
