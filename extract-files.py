@@ -118,6 +118,8 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('libnfc-nci-st-felica.conf', 'libnfc-hal-st-felica.conf'),
     'vendor/etc/init/thermal-mediatek.rc': blob_fixup()
         .regex_replace('android.hardware.thermal-service.mediatek', 'android.hardware.thermal-service.mediatek.fuji'),
+    'system_ext/lib64/libgpud_sys.so': blob_fixup()
+        .replace_needed('android.hardware.graphics.common-V5-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
