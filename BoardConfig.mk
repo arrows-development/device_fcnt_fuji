@@ -37,6 +37,9 @@ TARGET_2ND_CPU_VARIANT := cortex-a55
 # Force any prefer32 targets to be compiled as 64 bit.
 IGNORE_PREFER32_ON_DEVICE := true
 
+# Include 64-bit drmserver to support 64-bit only devices
+TARGET_DYNAMIC_64_32_DRMSERVER := true
+
 # Include 64-bit mediaserver to support 64-bit only devices
 TARGET_DYNAMIC_64_32_MEDIASERVER := true
 
