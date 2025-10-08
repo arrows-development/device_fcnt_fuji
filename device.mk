@@ -263,11 +263,12 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.pixel-libperfmgr \
+    android.hardware.power-service.lineage-libperfmgr \
     libpowerhalwrap_vendor
 
 PRODUCT_PACKAGES += \
-    libmtkperf_client_vendor
+    libmtkperf_client_vendor \
+    libmtkperf_client
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -311,7 +312,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/motorola \
     hardware/mediatek/libmtkperf_client \
     hardware/google/pixel \
-    hardware/google/interfaces
+    hardware/google/interfaces \
+    hardware/lineage/interfaces/power-libperfmgr
 
 # USB
 PRODUCT_COPY_FILES += \
