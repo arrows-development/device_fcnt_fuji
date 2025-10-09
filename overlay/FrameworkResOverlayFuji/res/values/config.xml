@@ -277,9 +277,6 @@
          Note that a physical cutout should be configured in pixels for the best results. -->
     <string name="config_mainBuiltInDisplayCutout">M -48,0 L 48,0 L 48,112 L -48,112 Z</string>
 
-    <!-- Type of the single tap sensor. Empty if single tap is not supported. -->
-    <string name="config_dozeTapSensorType" translatable="false">org.lineageos.sensor.single_tap</string>
-
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
     <bool name="config_cellBroadcastAppLinks">true</bool>
 
