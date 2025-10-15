@@ -9,5 +9,3 @@ allow motcamera_app mtk_hal_camera:fd use;
 
 allow motcamera_app mtk_hal_isphal_service:service_manager find;
 allow motcamera_app mtk_hal_mali_platform_default_service:service_manager find;
-
-allow motcamera_app hal_camera_service:service_manager find;
