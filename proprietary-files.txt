@@ -1075,6 +1075,10 @@ vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Virgin_Mobile.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_nTelos.xml
 vendor/etc/gnss/agps_profiles_conf2.xml
 
+# Health Care
+product/etc/permissions/privapp-permissions-com.fujitsu.mobile_phone.healthcare.xml
+product/priv-app/FjHealthcareApp/FjHealthcareApp.apk;PRESIGNED
+
 # Keystore
 vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic
 vendor/etc/init/android.hardware.security.keymint@3.0-service.trustonic.rc
