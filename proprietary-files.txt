@@ -996,6 +996,10 @@ product/app/EuiccPartnerApp/EuiccPartnerApp.apk;PRESIGNED
 product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
 product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
 
+# FCNT
+product/etc/permissions/privapp-permissions-com.fujitsu.mobile_phone.healthcare.xml
+product/priv-app/FjHealthcareApp/FjHealthcareApp.apk;PRESIGNED
+
 # Felica
 product/etc/felica/common.cfg
 product/etc/felica/mfm.cfg
