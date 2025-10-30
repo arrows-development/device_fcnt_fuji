@@ -215,7 +215,7 @@ PRODUCT_COPY_FILES += \
 
 # Light
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.fuji
+    android.hardware.light-service.lineage
 
 # Media
 PRODUCT_COPY_FILES += \
