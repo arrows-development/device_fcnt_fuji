@@ -301,7 +301,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.fuji-multihal
+    android.hardware.sensors-service.multihal \
+    hals.conf
 
 # Shipping API level
 PRODUCT_SHIPPING_API_LEVEL := 34
