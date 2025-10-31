@@ -151,6 +151,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
+# HIDL
+PRODUCT_HIDL_ENABLED := true
+PRODUCT_PACKAGES += hwservicemanager
 
 # HotwordEnrollment
 PRODUCT_COPY_FILES += \
