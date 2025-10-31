@@ -162,6 +162,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
+# HIDL
+PRODUCT_HIDL_ENABLED := true
+PRODUCT_PACKAGES += hwservicemanager
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.mt6897 \
