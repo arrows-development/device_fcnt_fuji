@@ -152,6 +152,10 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.mediatek \
     android.hardware.health-service.mediatek-recovery
 
+# HIDL
+PRODUCT_HIDL_ENABLED := true
+PRODUCT_PACKAGES += hwservicemanager
+
 # HotwordEnrollment
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
