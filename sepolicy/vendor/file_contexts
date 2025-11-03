@@ -79,7 +79,7 @@
 /vendor/bin/hw/android\.hardware\.thermal-service\.mediatek\.fuji                      u:object_r:hal_thermal_default_exec:s0
 
 # Touch
-/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.fuji                               u:object_r:hal_lineage_touch_default_exec:s0
+/vendor/bin/hw/vendor\.lineage\.touch-service\.motorola                                u:object_r:hal_lineage_touch_default_exec:s0
 
 # Trustonic TEE
 /vendor/bin/hw/android\.hardware\.security\.keymint@3\.0-service\.trustonic            u:object_r:hal_keymint_default_exec:s0
