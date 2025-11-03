@@ -309,7 +309,7 @@ PRODUCT_SHIPPING_API_LEVEL := 34
 # SKU
 # Variant Properties
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,product.*.prop,$(LOCAL_PATH)/props/sku/,$(TARGET_COPY_OUT_PRODUCT))
+    $(call find-copy-subdir-files,product.*.prop,$(LOCAL_PATH)/configs/props/sku/,$(TARGET_COPY_OUT_PRODUCT))
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
