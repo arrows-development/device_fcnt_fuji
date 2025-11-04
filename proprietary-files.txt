@@ -1116,9 +1116,7 @@ vendor/lib64/vendor.mediatek.hardware.mms@1.4.so
 vendor/lib64/vendor.mediatek.hardware.mms@1.5.so
  
 # NFC
-vendor/bin/hw/android.hardware.nfc-service-st
 vendor/etc/init/hw/init.vendor.st21nfc.rc
-vendor/etc/init/nfc-service-st.rc
 vendor/etc/libnfc-hal-st-felica.conf
 vendor/etc/libnfc-hal-st.conf
 vendor/etc/libnfc-nci-st-felica.conf
