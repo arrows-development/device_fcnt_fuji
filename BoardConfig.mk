@@ -105,6 +105,17 @@ BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)-k
 BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)-kernel/modules.load.recovery))
 BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD)
 
+# Recovery touch modules (from vendor_dlkm)
+RECOVERY_KERNEL_MODULES := \
+    mmi_info \
+    mmi_relay \
+    sensors_class \
+    touchscreen_u_mmi \
+    focaltech_touch_v3_u_mmi
+
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES += $(addprefix $(DEVICE_PATH)-kernel/vendor/,$(addsuffix .ko,$(RECOVERY_KERNEL_MODULES)))
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD += $(RECOVERY_KERNEL_MODULES)
+
 BOARD_MKBOOTIMG_ARGS += \
     --dtb_offset $(BOARD_TAGS_OFFSET) \
     --header_version $(BOARD_BOOT_HEADER_VERSION) \
