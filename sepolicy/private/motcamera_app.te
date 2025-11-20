@@ -1,0 +1,40 @@
+app_domain(motcamera_app)
+net_domain(motcamera_app)
+binder_service(motcamera_app)
+
+allow motcamera_app motcamera_app_data_file:dir create_dir_perms;
+allow motcamera_app motcamera_app_data_file:file create_file_perms;
+
+allow motcamera_app tmpfs:file rw_file_perms;
+
+get_prop(motcamera_app, audio_config_prop)
+get_prop(motcamera_app, exported_system_prop)
+
+allow motcamera_app {
+    activity_service
+    activity_task_service
+    audio_service
+    audioserver_service
+    autofill_service
+    cameraserver_service
+    clipboard_service
+    content_capture_service
+    device_policy_service
+    device_state_service
+    gpu_service
+    legacy_permission_service
+    location_service
+    mediaextractor_service
+    mediametrics_service
+    mediaserver_service
+    netstats_service
+    radio_service
+    sensitive_content_protection_service
+    sensorservice_service
+    storagestats_service
+    thermal_service
+    trust_service
+    vibrator_manager_service
+    virtual_device_native_service
+    voiceinteraction_service
+}:service_manager find;

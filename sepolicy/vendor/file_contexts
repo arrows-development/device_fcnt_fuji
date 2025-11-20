@@ -4,7 +4,22 @@
 /data/vendor/misc/imager                                                               u:object_r:vendor_camera_data_file:s0
 /data/vendor/camera(/.*)?                                                              u:object_r:vendor_camera_data_file:s0
 /mnt/vendor/persist/camera(/.*)?                                                       u:object_r:vendor_persist_camera_file:s0
-/vendor/bin/hw/fcnt\.hardware\.camera\.imgtuner@2\.0-service                       u:object_r:hal_camera_default_exec:s0
+/vendor/lib64/libarcsoft_portrait_distortion_correction\.so                            u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_stellartrack\.so                                              u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_tfs_hdr\.so                                                   u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_tfs_motioncapture\.so                                         u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_tfs_portrait_hdr\.so                                          u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_tfs_portrait_sn\.so                                           u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_tfs_sn\.so                                                    u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarcsoft_tfs_sr\.so                                                    u:object_r:same_process_hal_file:s0
+/vendor/lib64/libarc\.ion.so                                                           u:object_r:same_process_hal_file:s0
+/vendor/lib64/libion_mtk\.so                                                           u:object_r:same_process_hal_file:s0
+/vendor/lib64/libion_ulit\.so                                                          u:object_r:same_process_hal_file:s0
+/vendor/lib64/libmpbase\.so                                                            u:object_r:same_process_hal_file:s0
+/vendor/lib64/libmotoispaidlclient\.so                                                 u:object_r:same_process_hal_file:s0
+/vendor/lib64/libneuron_runtime\.7\.so                                                 u:object_r:same_process_hal_file:s0
+/vendor/lib64/libprocessgroup_shim\.so                                                 u:object_r:same_process_hal_file:s0
+/vendor/lib64/vendor\.mediatek\.hardware\.camera\.isphal-V1-ndk\.so                    u:object_r:same_process_hal_file:s0
 
 # Double Tap
 /sys/devices/virtual/touchscreen/primary/double_tap_enabled                            u:object_r:vendor_sysfs_touchpanel:s0
@@ -53,7 +68,11 @@
 /vendor/bin/hw/android\.hardware\.nfc@1\.2-service\.sec                                u:object_r:hal_nfc_default_exec:s0
 
 # Neural Networks
-/vendor/lib(64)?/libapusys\.so                                                         u:object_r:same_process_hal_file:s0
+/vendor/lib64/libapusys\.so                                                            u:object_r:same_process_hal_file:s0
+/vendor/lib64/libapu_mdw\.so                                                           u:object_r:same_process_hal_file:s0
+/vendor/lib64/libapu_mdw_batch\.so                                                     u:object_r:same_process_hal_file:s0
+/vendor/lib64/mt6897/libneuron_runtime\.so                                             u:object_r:same_process_hal_file:s0
+/vendor/lib64/mt6897/libneuron_runtime\.7\.so                                          u:object_r:same_process_hal_file:s0
 
 # Power
 /vendor/bin/hw/android\.hardware\.power-service\.pixel-libperfmgr                      u:object_r:hal_power_default_exec:s0

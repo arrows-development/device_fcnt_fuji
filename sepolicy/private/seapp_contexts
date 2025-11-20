@@ -1,0 +1,2 @@
+user=_app isPrivApp=true name=com.motorola.camera5 domain=motcamera_app type=motcamera_app_data_file levelFrom=user
+user=_app isPrivApp=true name=com.motorola.camera5:postProcService domain=motcamera_app type=motcamera_app_data_file levelFrom=user
