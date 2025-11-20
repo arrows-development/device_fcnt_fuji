@@ -18,3 +18,5 @@ get_prop(mtk_hal_camera, system_mot_camera_prop)
 get_prop(mtk_hal_camera, vendor_mot_camera_prop)
 set_prop(mtk_hal_camera, vendor_mot_camera_prop)
 get_prop(mtk_hal_camera, vendor_persist_camera_prop)
+allow mtk_hal_camera motcamera_app:binder { call transfer };
+allow mtk_hal_camera motcamera_app:fd use;

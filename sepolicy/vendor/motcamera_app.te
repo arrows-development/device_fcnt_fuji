@@ -1,0 +1,11 @@
+hal_client_domain(motcamera_app, hal_mtk_isphal)
+
+allow motcamera_app apusys_device:chr_file rw_file_perms;
+
+allow motcamera_app proc_ged:file ioctl;
+
+allow motcamera_app mtk_hal_camera:binder { call transfer };
+allow motcamera_app mtk_hal_camera:fd use;
+
+allow motcamera_app mtk_hal_isphal_service:service_manager find;
+allow motcamera_app mtk_hal_mali_platform_default_service:service_manager find;
