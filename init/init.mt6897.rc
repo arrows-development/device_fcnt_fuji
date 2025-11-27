@@ -608,7 +608,7 @@ on post-fs-data
     chmod 0660 /dev/MAIN2AF
     chmod 0660 /dev/MAIN3AF
     chmod 0660 /dev/SUBAF
-    chmod 0660 /dev/apusys
+    chmod 0666 /dev/apusys
     chmod 0660 /dev/mtk_ccd
     write /sys/module/mtk_imgsys_cmdq/parameters/imgsys_fine_grain_dvfs_en 1
 
