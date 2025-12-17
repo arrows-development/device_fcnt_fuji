@@ -1319,8 +1319,8 @@ vendor/lib64/vendor.mediatek.hardware.videotelephony-V1-ndk.so
 
 # Radio (Telephony Assist)
 system_ext/priv-app/MtkTelephonyAssist/MtkTelephonyAssist.apk
-system_ext/framework/mtk-moto-telephony-ext.jar;BOOT_JAR
-system_ext/framework/mtk-telephony-common.jar;BOOT_JAR
+system_ext/framework/mtk-moto-telephony-ext.jar
+system_ext/framework/mtk-telephony-common.jar
 
 # Secure element
 vendor/bin/hw/android.hardware.secure_element-service.thales
