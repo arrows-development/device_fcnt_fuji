@@ -55,7 +55,7 @@ fi
 function blob_fixup() {
     case "${1}" in
         system_ext/lib64/libgpud_sys.so)
-            "${PATCHELF}" --replace-needed "android.hardware.graphics.common-V5-ndk.so" "android.hardware.graphics.common-V6-ndk.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.hardware.graphics.common-V5-ndk.so" "android.hardware.graphics.common-V7-ndk.so" "${2}"
             ;;
     esac
 }
