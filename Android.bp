@@ -9,7 +9,6 @@ soong_namespace {
         "hardware/google/interfaces",
         "hardware/google/pixel",
         "hardware/mediatek",
-        "hardware/motorola",
     ],
 }
 

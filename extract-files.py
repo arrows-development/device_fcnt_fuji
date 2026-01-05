@@ -21,7 +21,6 @@ namespace_imports = [
     'device/fcnt/fuji',
     'hardware/mediatek/libmtkperf_client',
     'hardware/mediatek',
-    'hardware/motorola',
 ]
 
 
