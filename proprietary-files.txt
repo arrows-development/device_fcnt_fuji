@@ -1342,7 +1342,7 @@ vendor/lib64/libvia-ril.so
 vendor/lib64/libviamipc-ril.so
 vendor/lib64/libwpfa.so
 vendor/lib64/motrilutils.so
-vendor/lib64/mt6897/libmnl.so;SYMLINK=vendor/lib64/libmnl.so
+vendor/lib64/mt6897/libmnl.so:vendor/lib64/mt6897/libmnl_mtk.so;SYMLINK=vendor/lib64/libmnl_mtk.so;FIX_SONAME
 vendor/lib64/nwk_opt_imp.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor-V1-ndk.so
 vendor/lib64/vendor.mediatek.hardware.mdmonitor@1.0.so

@@ -73,7 +73,9 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/mt6897/lib3a.sensors.flicker.so', 'vendor/lib64/mt6897/lib3a.sensors.color.so',
      'vendor/lib64/lib3a.ae.pipe.so'): blob_fixup()
         .add_needed('liblog.so'),
-    'vendor/lib64/mt6897/libmnl.so': blob_fixup()
+    'vendor/bin/mnld': blob_fixup()
+        .replace_needed('libmnl.so', 'libmnl_mtk.so'),
+    'vendor/lib64/mt6897/libmnl_mtk.so': blob_fixup()
         .add_needed('libcutils.so'),
     'vendor/bin/hw/android.hardware.biometrics.fingerprint-service.fpc': blob_fixup()
         .binary_regex_replace(b'/virtual', b'/default')
