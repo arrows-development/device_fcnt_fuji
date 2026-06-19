@@ -899,6 +899,7 @@ vendor/etc/vintf/manifest/mapper.mediatek.xml
 vendor/firmware/mali_csffw.bin
 vendor/lib/egl/egl.cfg
 vendor/lib/egl/libMEOW_data.so
+vendor/lib64/android.frameworks.displayservice@1.0.so
 vendor/lib64/egl/libGLES_meow.so
 vendor/lib64/egl/libMEOW_data.so
 vendor/lib64/egl/libMEOW_gift.so
