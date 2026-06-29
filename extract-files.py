@@ -77,6 +77,11 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libmnl.so', 'libmnl_mtk.so'),
     'vendor/lib64/mt6897/libmnl_mtk.so': blob_fixup()
         .add_needed('libcutils.so'),
+    (
+        'vendor/lib64/libcodec2_mtk_vdec.so',
+        'vendor/lib64/libcodec2_mtk_venc.so',
+    ): blob_fixup()
+        .replace_needed('libformatter.so', 'libformatter_mtk.so'),
     'vendor/bin/hw/android.hardware.biometrics.fingerprint-service.fpc': blob_fixup()
         .binary_regex_replace(b'/virtual', b'/default')
         .replace_needed('android.hardware.biometrics.common-V3-ndk.so', 'android.hardware.biometrics.common-V4-ndk.so')
