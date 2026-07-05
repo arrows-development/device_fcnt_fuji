@@ -140,6 +140,9 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/felica_docomo/,$(TARGET_COPY_OUT_PRODUCT)/etc/felica_docomo/)
 
 # Fingerprint
+PRODUCT_PACKAGES += \
+    com.motorola.hardware.biometric.fingerprint@1.0.vendor
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
@@ -308,6 +311,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek \
+    hardware/motorola \
     hardware/mediatek/libmtkperf_client \
     hardware/google/pixel \
     hardware/google/interfaces \
