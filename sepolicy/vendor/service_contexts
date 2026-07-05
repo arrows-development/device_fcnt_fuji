@@ -1,3 +1,6 @@
+# Camera
+vendor.mediatek.hardware.camera.isphal.IISPModule/internal/1 u:object_r:mtk_hal_isphal_service:s0
+
 # Fingerprint
 com.motorola.hardware.biometric.fingerprint.IMotoFingerPrint/default            u:object_r:hal_fingerprint_test_service:s0
 com.motorola.hardware.biometric.fingerprint.IMotoFodSensorTest/default          u:object_r:hal_fingerprint_test_service:s0

@@ -1,1 +1,6 @@
 attribute vendor_persist_type;
+
+# Camera
+attribute hal_mtk_isphal;
+attribute hal_mtk_isphal_client;
+attribute hal_mtk_isphal_server;
