@@ -341,4 +341,3 @@ PRODUCT_COPY_FILES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/fcnt/fuji/fuji-vendor.mk)
-$(call inherit-product, vendor/fcnt/fuji-motcamera/fuji-motcamera-vendor.mk)
