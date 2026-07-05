@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fuji.mk
+    $(LOCAL_DIR)/lineage_fuji.mk

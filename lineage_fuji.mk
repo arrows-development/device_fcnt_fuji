@@ -11,18 +11,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile.
 $(call inherit-product, device/fcnt/fuji/device.mk)
 
-# Inherit some common 2by2 stuff.
-$(call inherit-product, vendor/2by2/config/common_full_phone.mk)
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 
-PRODUCT_NAME := fuji
+PRODUCT_NAME := lineage_fuji
 PRODUCT_DEVICE := fuji
 PRODUCT_MANUFACTURER := FCNT
 PRODUCT_BRAND := FCNT
 PRODUCT_MODEL := M08
 
-CUSTOM_PROCESSOR_INFO := MediaTek Dimensity 8350 Extreme
+# WitAqua stuff
+PROCESSOR_INFO := MediaTek Dimensity 8350 Extreme
+WITAQUA_MAINTAINER := kailua
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
