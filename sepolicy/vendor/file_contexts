@@ -60,9 +60,6 @@
 
 # NFC
 /dev/nq-nfc                                                                            u:object_r:nfc_device:s0
-/dev/nq-nci                                                                            u:object_r:nfc_device:s0
-/dev/p73                                                                               u:object_r:nfc_device:s0
-/dev/sec-nfc                                                                           u:object_r:nfc_device:s0
 /vendor/bin/hw/android\.hardware\.nfc@1\.2-service\.sec                                u:object_r:hal_nfc_default_exec:s0
 
 # Neural Networks
@@ -80,9 +77,6 @@
 
 # Touch
 /vendor/bin/hw/vendor\.lineage\.touch-service\.motorola                                u:object_r:hal_lineage_touch_default_exec:s0
-
-# Trustonic TEE
-/vendor/bin/hw/android\.hardware\.security\.keymint@3\.0-service\.trustonic            u:object_r:hal_keymint_default_exec:s0
 
 # USB
 /vendor/bin/hw/android\.hardware\.usb-aidl-service\.mediatekv1\.0                      u:object_r:mtk_hal_usb_exec:s0

@@ -1,6 +1,3 @@
-# Camera
-vendor.mediatek.hardware.camera.isphal.IISPModule/internal/1 u:object_r:mtk_hal_isphal_service:s0
-
 # Fingerprint
 com.motorola.hardware.biometric.fingerprint.IMotoFingerPrint/default            u:object_r:hal_fingerprint_test_service:s0
 com.motorola.hardware.biometric.fingerprint.IMotoFodSensorTest/default          u:object_r:hal_fingerprint_test_service:s0
@@ -8,32 +5,5 @@ com.motorola.hardware.biometric.fingerprint.IMotoCaptiveSensorTest/default      
 com.motorola.hardware.biometric.fingerprint.IMotoFpsNavigate/default            u:object_r:hal_fingerprint_test_service:s0
 com.fingerprints.fpc.extension.IFpcExtension/default                            u:object_r:hal_fingerprint_test_service:s0
 
-# MTK LBS Service
-vendor.mediatek.hardware.lbs.ILbs/AgpsDebugInterface                            u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/AgpsInterface                                 u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_agps2framework                            u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_agpsd2debugService                        u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_debugService2agpsd                        u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_debugService2mnld                         u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_framework2agps                            u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lbs_log_v2s                               u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_agps                          u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_bt                            u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_ipaddr                        u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_lbs                           u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_network                       u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_sensor                        u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_lppe_socket_wlan                          u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_meta2mnld                                 u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_mnld2debugService                         u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_mnld2mtklogger                            u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_mnld2nlputils                             u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_mtklogger2mnld                            u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_jam2mnl                                   u:object_r:mtk_hal_lbs_service:s0
-vendor.mediatek.hardware.lbs.ILbs/mtk_mnl2jam                                   u:object_r:mtk_hal_lbs_service:s0
-
 # NWK OPT Service
 vendor.mediatek.hardware.nwk_opt_new.INwkOptNew/default                         u:object_r:mtk_hal_nwk_opt_service:s0
-
-# Shared Secret
-android.hardware.security.sharedsecret.ISharedSecret/strongbox                  u:object_r:hal_sharedsecret_service:s0
