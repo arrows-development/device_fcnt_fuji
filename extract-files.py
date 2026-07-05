@@ -46,6 +46,7 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('android.hardware.sensors@1.0-convert-shared.so'),
 
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
+        .replace_needed('android.hardware.audio.common-V1-ndk.so', 'android.hardware.audio.common-V2-ndk.so')
         .add_needed('libstagefright_foundation-v33.so')
         .replace_needed('libutils.so','libutils-v32.so')
         .replace_needed('libalsautils.so','libalsautils-v31.so')
