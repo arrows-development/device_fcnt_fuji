@@ -48,7 +48,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/hw/audio.primary.mediatek.so': blob_fixup()
         .add_needed('libstagefright_foundation-v33.so')
         .replace_needed('libutils.so','libutils-v32.so')
-        .replace_needed('libalsautils.so','libalsautils-v31.so'),
+        .replace_needed('libalsautils.so','libalsautils-v31.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 
     'vendor/lib64/hw/hwcomposer.mtk_common.so': blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
@@ -128,7 +129,15 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_unlock'),
 
     'vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq_aidl-impl.so': blob_fixup()
-        .add_needed('libui_shim.so'),
+        .add_needed('libui_shim.so')
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+
+    ('vendor/lib64/libpqxmlflagparser.so',
+     'vendor/lib64/libpqxmlparser.so',
+     'vendor/lib64/librt_extamp_intf.so',
+     'vendor/lib64/libsilkybrightnesscore.so',
+     'vendor/lib64/mt6897/libmmlpqImpl.so',): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 
     'vendor/etc/init/thermal-mediatek.rc': blob_fixup()
         .regex_replace('android.hardware.thermal-service.mediatek', 'android.hardware.thermal-service.mediatek.fuji'),
