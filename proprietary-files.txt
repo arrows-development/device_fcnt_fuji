@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise,
-## are from arrows Alpha M08 (15 V2VH35.58-32-41 af8fa-f6822).
+## are from arrows Alpha M08 (15 W1VHS36H.80-34-2-2-1-1 ce527-093243).
 ## variant: RETJP
 
 # AEE
@@ -986,9 +986,9 @@ vendor/lib64/liboemcrypto.so
 vendor/lib64/liburee_meta_drmkeyinstall.so
 
 # eUICC
-product/app/EuiccPartnerApp/EuiccPartnerApp.apk;PRESIGNED
 product/etc/permissions/privapp-permissions-com.google.android.euicc.xml
 product/priv-app/EuiccGoogle/EuiccGoogle.apk;PRESIGNED
+product/priv-app/EuiccPartnerApp/EuiccPartnerApp.apk;PRESIGNED
 
 # Felica
 product/etc/felica/common.cfg
