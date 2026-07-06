@@ -1079,13 +1079,27 @@ product/etc/permissions/privapp-permissions-com.fujitsu.mobile_phone.healthcare.
 product/priv-app/FjHealthcareApp/FjHealthcareApp.apk;PRESIGNED
 
 # Keystore
+vendor/bin/TBaseDeviceBinding
 vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic
+vendor/bin/mot_attest_check
+vendor/bin/mot_tcmd
+vendor/bin/moto_eSE_tool;DISABLE_DEPS
+vendor/bin/vendor_netconfig
 vendor/etc/init/android.hardware.security.keymint@3.0-service.trustonic.rc
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service.trustonic.xml
 vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.trustonic.xml
 vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.trustonic.xml
+vendor/etc/wfd.hdcp.bin
+vendor/etc/wfd_source_capability.csv
+vendor/lib64/libDxHdcp.so
+vendor/lib64/libTBaseProvisioning.so
 vendor/lib64/libdecrypt.so
+vendor/lib64/libjc_keymint_transport-thales.so
 vendor/lib64/libkmsetkey.so
+vendor/lib64/libnetconfig_vendor.so
+vendor/lib64/libpkip.so
+vendor/lib64/libthha.so;DISABLE_CHECKELF
+vendor/lib64/libtpa.so;DISABLE_DEPS
 
 # Neural networks
 vendor/bin/hw/android.hardware.neuralnetworks-shim-service-mtk
@@ -1380,8 +1394,10 @@ vendor/bin/hw/android.hardware.weaver@1.0-service-thales
 vendor/etc/init/android.hardware.secure_element@1.2-service-mediatek.rc
 vendor/etc/init/android.hardware.secure_element_gto.rc
 vendor/etc/init/android.hardware.weaver@1.0-service-thales.rc
+vendor/etc/keymint3_thales_multiscript_02_15.xml
 vendor/lib64/android.hardware.secure_element.thales.libse.so
 vendor/lib64/ese_weaver.so
+vendor/lib64/libcppbor_external.so:vendor/lib64/libcppbor_external_thales.so;DISABLE_CHECKELF;FIX_SONAME
 vendor/lib64/libextra-thales.so
 vendor/lib64/libjc_weaver_transport.so
 vendor/lib64/libnativecospatchkernel-thales.so
@@ -1473,10 +1489,12 @@ vendor/app/mcRegistry/e97c270ea5c44c58bcd3384a2fa2539e.tabin
 vendor/app/mcRegistry/ffffffff000000000000000000000003.tabin
 vendor/bin/hw/vendor.trustonic.tee@1.1-service
 vendor/bin/mcDriverDaemon
+vendor/etc/ArmHDCP_MediatekGP.cfg
 vendor/etc/init/tee.rc
 vendor/etc/init/trustonic.rc
 vendor/etc/init/vendor.trustonic.tee@1.1-service.rc
 vendor/lib64/libMcClient.so
+vendor/lib64/libMcRegistry.so
 vendor/lib64/libTEECommon.so
 vendor/lib64/libgz_gp_client.so
 vendor/lib64/libgz_uree.so

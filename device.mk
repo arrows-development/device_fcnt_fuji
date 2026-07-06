@@ -198,6 +198,10 @@ PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json
 
+# Keymaster
+PRODUCT_PACKAGES += \
+    libcppbor_external
+
 # Keymint
 PRODUCT_PACKAGES += \
     libkeymint.vendor \
