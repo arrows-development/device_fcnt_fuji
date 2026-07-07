@@ -1,0 +1,26 @@
+//
+// SPDX-FileCopyrightText: 2020 The Android Open Source Project
+// SPDX-FileCopyrightText: 2025-2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "android.hardware.memtrack-service.mediatek",
+    relative_install_path: "hw",
+    init_rc: ["memtrack-mediatek.rc"],
+    vintf_fragments: ["memtrack-mediatek.xml"],
+    vendor: true,
+    shared_libs: [
+        "android.hardware.memtrack-V1-ndk",
+        "libbase",
+        "libbinder_ndk",
+    ],
+    srcs: [
+        "Memtrack.cpp",
+        "MemtrackDeviceIon.cpp",
+        "MemtrackDeviceDmaHeap.cpp",
+        "MemtrackDevicePvr.cpp",
+        "MemtrackDeviceMali.cpp",
+        "main.cpp",
+    ],
+}
