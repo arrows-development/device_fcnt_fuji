@@ -266,6 +266,7 @@ vendor/lib64/libbt-vendor.so
 vendor/bin/hw/mt6897/camerahalserver;SYMLINK=vendor/bin/hw/camerahalserver
 vendor/etc/init/camerahalserver.rc
 vendor/etc/vintf/manifest/manifest_cameraprovider.xml
+vendor/etc/vintf/manifest/manifest_isphal.xml
 vendor/etc/default_pd_calibration.bin
 vendor/etc/dual_golden_tele.bin
 vendor/etc/dual_golden_wide.bin
@@ -283,7 +284,6 @@ vendor/lib64/libiqi_bridge.so
 vendor/lib64/liblog_vendor.so
 vendor/lib64/libminiui.so
 vendor/lib64/liboem_specific.so
-vendor/lib64/libscltm.so
 vendor/lib64/libstfactory-vendor.so
 vendor/lib64/hw/mt6897/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so;SYMLINK=vendor/lib64/hw/vendor.mediatek.hardware.camera.bgservice@1.1-impl.so
 vendor/lib64/hw/mt6897/vendor.mediatek.hardware.camera.atms@1.0-impl.so;SYMLINK=vendor/lib64/hw/vendor.mediatek.hardware.camera.atms@1.0-impl.so
@@ -322,8 +322,6 @@ vendor/lib64/mt6897/libaaa_ltm.so;SYMLINK=vendor/lib64/libaaa_ltm.so
 vendor/lib64/mt6897/libaaa_ltmx.so;SYMLINK=vendor/lib64/libaaa_ltmx.so
 vendor/lib64/mt6897/libaaa_tnc.so;SYMLINK=vendor/lib64/libaaa_tnc.so
 vendor/lib64/mt6897/libaaa_toneutil.so;SYMLINK=vendor/lib64/libaaa_toneutil.so
-vendor/lib64/mt6897/libaal_cust_func.so;SYMLINK=vendor/lib64/libaal_cust_func.so
-vendor/lib64/mt6897/libaalservice.so;SYMLINK=vendor/lib64/libaalservice.so
 vendor/lib64/mt6897/libaiawb_fs.so;SYMLINK=vendor/lib64/libaiawb_fs.so
 vendor/lib64/mt6897/libaiawb_moon.so;SYMLINK=vendor/lib64/libaiawb_moon.so
 vendor/lib64/mt6897/libaiawb_moon_model.so;SYMLINK=vendor/lib64/libaiawb_moon_model.so
@@ -705,7 +703,12 @@ vendor/lib64/vendor.mediatek.hardware.camera.isphal@1.1.so
 vendor/lib64/vendor.mediatek.hardware.camera.postproc@1.0.so
 vendor/lib64/vendor.mediatek.hardware.camera.security@1.0.so
 
+# Camera OIS
+vendor/firmware/mot_tele_dw9784.prog
+
 # Camera (arcsoft)
+vendor/etc/ArcCustomParams.json
+vendor/etc/arc_uw_dc_calibration.bin
 vendor/etc/arcsoft_calibration_u_dc.bin
 vendor/lib64/libarc.ion.so
 vendor/lib64/libarcsoft_faceid.so
@@ -872,27 +875,70 @@ vendor/firmware/remoteproc_scp
 vendor/lib64/libconnfem.so
 
 # Display
+vendor/bin/hw/android.hardware.graphics.composer@3.2-service
+vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897;SYMLINK=vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
+vendor/bin/hw/mt6897/arm.mali.platform-service.mediatek.mt6897;SYMLINK=vendor/lib64/hw/arm.mali.platform-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service
 vendor/bin/hw/vendor.mediatek.hardware.pq_aidl-service
 vendor/etc/bstai_hdr
+vendor/etc/gralloc/cam.xml
+vendor/etc/gralloc/dpu.xml
+vendor/etc/gralloc/dpu_aeu.xml
+vendor/etc/gralloc/gpu.xml
+vendor/etc/gralloc/vpu.xml
 vendor/etc/hdrcfg.cfg
+vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
+vendor/etc/init/android.hardware.graphics.composer@3.2-service.rc
+vendor/etc/init/arm.mali.platform-mediatek.rc
 vendor/etc/init/vendor.mediatek.hardware.mmlpq@V1-service.rc
 vendor/etc/init/vendor.mediatek.hardware.pq_aidl-service.rc
+vendor/etc/mali_platform.config
+vendor/etc/meow.cfg
+vendor/etc/pq_flag.xml
+vendor/etc/vintf/manifest/arm.mali.platform-mediatek.xml
+vendor/etc/vintf/manifest/manifest_allocator.xml
+vendor/etc/vintf/manifest/manifest_hwcomposer.xml
 vendor/etc/vintf/manifest/manifest_mmlpq.xml
+vendor/etc/vintf/manifest/mapper.mediatek.xml
+vendor/firmware/mali_csffw.bin
+vendor/lib/egl/egl.cfg
+vendor/lib/egl/libMEOW_data.so
+vendor/lib64/egl/libGLES_meow.so
+vendor/lib64/egl/libMEOW_data.so
+vendor/lib64/egl/libMEOW_gift.so
+vendor/lib64/egl/libMEOW_qt.so
+vendor/lib64/egl/libMEOW_trace.so
+vendor/lib64/egl/mt6897/libGLES_mali.so;SYMLINK=vendor/lib64/egl/libGLES_mali.so
+vendor/lib64/hw/gralloc.default.so
 vendor/lib64/hw/hwcomposer.mtk_common.so
+vendor/lib64/hw/mt6897/android.hardware.graphics.allocator-V2-mediatek.so;SYMLINK=vendor/lib64/hw/android.hardware.graphics.allocator-V2-mediatek.so
+vendor/lib64/hw/mt6897/android.hardware.graphics.mapper@4.0-impl-mediatek.so;SYMLINK=vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-mediatek.so
+vendor/lib64/hw/mt6897/mapper.mediatek.so;SYMLINK=vendor/lib64/hw/mapper.mediatek.so
 vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq_aidl-impl.so;SYMLINK=vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so
+vendor/lib64/hw/mt6897/vulkan.mali.so;SYMLINK=vendor/lib64/hw/vulkan.mali.so
 vendor/lib64/libaal_cust.so
 vendor/lib64/libaal_key.so
 vendor/lib64/libaal_sec.so
+vendor/lib64/libaibld.nn6.so
 vendor/lib64/libappgamepq.so
 vendor/lib64/libcomposer_ext.so
+vendor/lib64/libDefaultFpsActor.so
 vendor/lib64/libdre.so
+vendor/lib64/libFrameRecord.so
+vendor/lib64/libged.so
+vendor/lib64/libgpu_aux.so;DISABLE_CHECKELF
+vendor/lib64/libgpud.so
+vendor/lib64/libgralloc_extra.so
+vendor/lib64/libgralloc_metadata.so
+vendor/lib64/libgralloctypes_mtk.so
+vendor/lib64/libhdrvideo.so
 vendor/lib64/libion_mtk.so
 vendor/lib64/libion_ulit.so
-vendor/lib64/libmml.so
 vendor/lib64/libmmprofile.so
+vendor/lib64/libNoFpsActor.so
 vendor/lib64/libnpagent.so;DISABLE_CHECKELF
 vendor/lib64/libnpagent_server.so
+vendor/lib64/libOpenCL.so
 vendor/lib64/libpixelflinger.so
 vendor/lib64/libpqframework.so
 vendor/lib64/libpqhdrmetaparser.so
@@ -901,11 +947,18 @@ vendor/lib64/libpqtuning.so
 vendor/lib64/libpqxmlflagparser.so
 vendor/lib64/libpqxmlparser.so
 vendor/lib64/librgbwlightsensor.so
+vendor/lib64/libscltm.so
 vendor/lib64/libsilkybrightnesscore.so
+vendor/lib64/libvividhdr.so
 vendor/lib64/mt6897/arm.graphics-V4-ndk.so;SYMLINK=vendor/lib64/arm.graphics-V4-ndk.so
+vendor/lib64/mt6897/arm.mali.platform-V2-ndk.so;SYMLINK=vendor/lib64/arm.mali.platform-V2-ndk.so
+vendor/lib64/mt6897/libaal_cust_func.so;SYMLINK=vendor/lib64/libaal_cust_func.so
+vendor/lib64/mt6897/libaalservice.so;SYMLINK=vendor/lib64/libaalservice.so
 vendor/lib64/mt6897/libaiselector.so;SYMLINK=vendor/lib64/libaiselector.so
+vendor/lib64/mt6897/libarm_mali_config_sysprops.so
 vendor/lib64/mt6897/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
-vendor/lib64/mt6897/libmmlpqImpl.so
+vendor/lib64/mt6897/libmml.so;SYMLINK=vendor/lib64/libmml.so
+vendor/lib64/mt6897/libmmlpqImpl.so;SYMLINK=vendor/lib64/libmmlpqImpl.so
 vendor/lib64/mt6897/libmtk_drvb.so;SYMLINK=vendor/lib64/libmtk_drvb.so
 vendor/lib64/mt6897/libpq_cust_base.so;SYMLINK=vendor/lib64/libpq_cust_base.so
 vendor/lib64/mt6897/libpq_sec.so;SYMLINK=vendor/lib64/libpq_sec.so
@@ -951,6 +1004,11 @@ vendor/etc/vintf/manifest/manifest_IMoto_AIDL_Fingerprint.xml
 vendor/framework/com.fingerprints.extension.jar
 vendor/lib64/com.motorola.hardware.biometric.fingerprint-V1-ndk.so
 vendor/lib64/hw/fingerprint.fpc.mt6897.so
+
+# Gatekeeper
+vendor/bin/hw/android.hardware.gatekeeper-service.trustonic
+vendor/etc/init/android.hardware.gatekeeper-service.trustonic.rc
+vendor/etc/vintf/manifest/android.hardware.gatekeeper-service.trustonic.xml
 
 # GNSS
 vendor/bin/hw/android.hardware.gnss-service.mediatek
@@ -1015,42 +1073,6 @@ vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Verizon_Wireless.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_Virgin_Mobile.xml
 vendor/etc/gnss/carrier/agps_profiles_conf2_carrier_nTelos.xml
 vendor/etc/gnss/agps_profiles_conf2.xml
-
-# Graphics
-vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897;SYMLINK=vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
-vendor/bin/hw/mt6897/arm.mali.platform-service.mediatek.mt6897;SYMLINK=vendor/lib64/hw/arm.mali.platform-service.mediatek
-vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
-vendor/etc/init/arm.mali.platform-mediatek.rc
-vendor/etc/mali_platform.config
-vendor/etc/meow.cfg
-vendor/etc/vintf/manifest/arm.mali.platform-mediatek.xml
-vendor/etc/vintf/manifest/manifest_allocator.xml
-vendor/etc/vintf/manifest/manifest_hwcomposer.xml
-vendor/firmware/mali_csffw.bin
-vendor/lib/egl/egl.cfg
-vendor/lib/egl/libMEOW_data.so
-vendor/lib64/egl/libGLES_meow.so
-vendor/lib64/egl/libMEOW_data.so
-vendor/lib64/egl/libMEOW_gift.so
-vendor/lib64/egl/libMEOW_qt.so
-vendor/lib64/egl/libMEOW_trace.so
-vendor/lib64/egl/mt6897/libGLES_mali.so;SYMLINK=vendor/lib64/egl/libGLES_mali.so
-vendor/lib64/hw/gralloc.default.so
-vendor/lib64/hw/mt6897/android.hardware.graphics.allocator-V2-mediatek.so;SYMLINK=vendor/lib64/hw/android.hardware.graphics.allocator-V2-mediatek.so
-vendor/lib64/hw/mt6897/android.hardware.graphics.mapper@4.0-impl-mediatek.so;SYMLINK=vendor/lib64/hw/android.hardware.graphics.mapper@4.0-impl-mediatek.so
-vendor/lib64/hw/mt6897/vulkan.mali.so;SYMLINK=vendor/lib64/hw/vulkan.mali.so
-vendor/lib64/libDefaultFpsActor.so
-vendor/lib64/libFrameRecord.so
-vendor/lib64/libged.so
-vendor/lib64/libgpu_aux.so;DISABLE_CHECKELF
-vendor/lib64/libgpud.so
-vendor/lib64/libgralloc_extra.so
-vendor/lib64/libgralloc_metadata.so
-vendor/lib64/libgralloctypes_mtk.so
-vendor/lib64/libNoFpsActor.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/mt6897/arm.mali.platform-V2-ndk.so
-vendor/lib64/mt6897/libarm_mali_config_sysprops.so
 
 # Health Care
 product/etc/permissions/privapp-permissions-com.fujitsu.mobile_phone.healthcare.xml
@@ -1133,7 +1155,6 @@ vendor/lib64/libcodec2_vpp_mi_plugin.so
 vendor/lib64/libcodec2_vpp_qt_plugin.so
 vendor/lib64/libcodec2_vpp_rs_plugin.so
 vendor/lib64/libformatter.so
-vendor/lib64/libhdrvideo.so
 vendor/lib64/libhevce_sb.ca7.android.so;DISABLE_CHECKELF
 vendor/lib64/libicd_decoder.so
 vendor/lib64/libjpeg-alpha-oal_vendor.so

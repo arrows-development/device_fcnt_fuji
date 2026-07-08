@@ -101,6 +101,7 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/lib64/egl/mt6897/libGLES_mali.so',
      'vendor/lib64/hw/mt6897/android.hardware.graphics.allocator-V2-mediatek.so',
      'vendor/lib64/hw/mt6897/android.hardware.graphics.mapper@4.0-impl-mediatek.so',
+     'vendor/lib64/hw/mt6897/mapper.mediatek.so',
      'vendor/lib64/mt6897/libmtkcam_grallocutils.so',
      'vendor/lib64/libcodec2_fsr.so',
      'vendor/lib64/libcodec2_vpp_AIMEMC_plugin.so',
