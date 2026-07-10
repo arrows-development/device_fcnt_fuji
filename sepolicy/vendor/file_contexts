@@ -58,13 +58,6 @@
 # MultiHal
 /vendor/bin/hw/android\.hardware\.sensors@2.1-service\.fuji-multihal                                                   u:object_r:hal_sensors_default_exec:s0
 
-# NFC
-/dev/nq-nfc                                                                            u:object_r:nfc_device:s0
-/dev/nq-nci                                                                            u:object_r:nfc_device:s0
-/dev/p73                                                                               u:object_r:nfc_device:s0
-/dev/sec-nfc                                                                           u:object_r:nfc_device:s0
-/vendor/bin/hw/android\.hardware\.nfc@1\.2-service\.sec                                u:object_r:hal_nfc_default_exec:s0
-
 # Neural Networks
 /vendor/lib64/libapusys\.so                                                            u:object_r:same_process_hal_file:s0
 /vendor/lib64/libapu_mdw\.so                                                           u:object_r:same_process_hal_file:s0
