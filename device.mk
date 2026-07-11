@@ -283,7 +283,7 @@ TARGET_BOARD_PLATFORM := mt6897
 
 # Radio
 PRODUCT_PACKAGES += \
-    vendor_mdota_symlink
+    mdota_symlink
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.ims.singlereg.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.ims.singlereg.xml \
