@@ -294,7 +294,7 @@ $(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
 $(call inherit-product, hardware/mediatek/frameworks/mediatek-frameworks.mk)
 
 PRODUCT_PACKAGES += \
-    vendor_mdota_symlink
+    mdota_symlink
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.ims.singlereg.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.ims.singlereg.xml \
