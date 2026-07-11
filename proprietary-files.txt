@@ -1386,10 +1386,13 @@ vendor/etc/init/android.hardware.security.keymint-service.strongbox-thales.rc
 vendor/etc/init/android.hardware.weaver@1.0-service-thales.rc
 vendor/lib64/android.hardware.secure_element.thales.libse.so
 vendor/lib64/ese_weaver.so
+vendor/lib64/lib_android_keymaster_keymint_utils.so:vendor/lib64/lib_android_keymaster_keymint_utils-v34.so;FIX_SONAME
+vendor/lib64/libcppbor_external.so:vendor/lib64/libcppbor_external-v34.so;FIX_SONAME
 vendor/lib64/libextra-thales.so
 vendor/lib64/libjc_keymint-thales.so
 vendor/lib64/libjc_keymint_transport-thales.so
 vendor/lib64/libjc_weaver_transport.so
+vendor/lib64/libkeymint.so:vendor/lib64/libkeymint-v34.so;FIX_SONAME
 vendor/lib64/libnativecospatchkernel-thales.so
 vendor/lib64/libnativecosupdateapi-thales.so
 vendor/lib64/libtpa.so
