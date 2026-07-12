@@ -875,6 +875,12 @@ vendor/firmware/remoteproc_scp
 vendor/lib64/libconnfem.so
 
 # Display
+system_ext/lib64/libPQDCjni.so
+system_ext/lib64/libPQjni.so
+system_ext/lib64/libcomposer_ext.so
+system_ext/lib64/libjni_pq.so
+system_ext/lib64/libsfpq_inf.so
+system_ext/lib64/vendor.mediatek.hardware.mmlpq-V4-ndk.so
 vendor/bin/hw/android.hardware.graphics.composer@3.2-service
 vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897;SYMLINK=vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
 vendor/bin/hw/mt6897/arm.mali.platform-service.mediatek.mt6897;SYMLINK=vendor/lib64/hw/arm.mali.platform-service.mediatek
@@ -921,7 +927,7 @@ vendor/lib64/libaal_key.so
 vendor/lib64/libaal_sec.so
 vendor/lib64/libaibld.nn6.so
 vendor/lib64/libappgamepq.so
-vendor/lib64/libcomposer_ext.so
+vendor/lib64/libcomposer_ext.so;MODULE_SUFFIX=_vendor
 vendor/lib64/libDefaultFpsActor.so
 vendor/lib64/libdre.so
 vendor/lib64/libFrameRecord.so
@@ -971,11 +977,21 @@ vendor/lib64/vendor.mediatek.hardware.pq_aidl-V2-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V4-ndk.so
 vendor/lib64/vendor.mediatek.hardware.pq_aidl-V7-ndk.so
 
+# Display (motorola)
+system_ext/etc/permissions/com.motorola.hardware.display_refresh_rate_v3.xml
+vendor/bin/hw/com.motorola.hardware.display.panel-service
+vendor/etc/init/com.motorola.hardware.display.panel-service.rc
+vendor/etc/vintf/manifest/com.motorola.hardware.display.panel-service.xml
+vendor/lib64/com.motorola.hardware.display.panel-V1-ndk.so
+vendor/lib64/com.motorola.hardware.display.panel@1.0.so
+vendor/lib64/hw/displaypanel.default.so
+
 # Display (configs)
 vendor/etc/AbnormalDisplayLog_dynamic.xml
-vendor/etc/vhw.xml
+vendor/etc/csot_ft3683g_ltpo_1200_2670_pq.xml
 vendor/etc/cust_color.xml
 vendor/etc/cust_pq.xml
+vendor/etc/vhw.xml
 
 # Display (Firmware)
 vendor/firmware/focaltech_ts_fw_csot.bin
