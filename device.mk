@@ -132,6 +132,9 @@ PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.1-impl-mock \
     fastbootd
 
+# FCNTParts
+-include packages/apps/FCNTParts/device.mk
+
 # Felica (docomo)
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/felica_docomo/,$(TARGET_COPY_OUT_PRODUCT)/etc/felica_docomo/)
