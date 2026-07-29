@@ -877,9 +877,10 @@ vendor/lib64/libconnfem.so
 # Display
 vendor/bin/hw/android.hardware.graphics.composer@3.2-service
 vendor/bin/hw/mt6897/android.hardware.graphics.allocator-V2-service-mediatek.mt6897;SYMLINK=vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
-vendor/bin/hw/mt6897/arm.mali.platform-service.mediatek.mt6897;SYMLINK=vendor/lib64/hw/arm.mali.platform-service.mediatek
+vendor/bin/hw/mt6897/arm.mali.platform-service.mediatek.mt6897;SYMLINK=vendor/bin/hw/arm.mali.platform-service.mediatek
 vendor/bin/hw/vendor.mediatek.hardware.mmlpq@V1-service
 vendor/bin/hw/vendor.mediatek.hardware.pq_aidl-service
+vendor/bin/hw/vendor.mediatek.hardware.gpuserv-service
 vendor/etc/bstai_hdr
 vendor/etc/gralloc/cam.xml
 vendor/etc/gralloc/dpu.xml
@@ -890,6 +891,7 @@ vendor/etc/hdrcfg.cfg
 vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
 vendor/etc/init/android.hardware.graphics.composer@3.2-service.rc
 vendor/etc/init/arm.mali.platform-mediatek.rc
+vendor/etc/init/gpuserv-default.rc
 vendor/etc/init/vendor.mediatek.hardware.mmlpq@V1-service.rc
 vendor/etc/init/vendor.mediatek.hardware.pq_aidl-service.rc
 vendor/etc/mali_platform.config
@@ -935,6 +937,7 @@ vendor/lib64/libhdrvideo.so
 vendor/lib64/libion_mtk.so
 vendor/lib64/libion_ulit.so
 vendor/lib64/libmmprofile.so
+vendor/lib64/libmtkgpuserv.so
 vendor/lib64/libNoFpsActor.so
 vendor/lib64/libnpagent.so;DISABLE_CHECKELF
 vendor/lib64/libnpagent_server.so
@@ -955,7 +958,9 @@ vendor/lib64/mt6897/arm.mali.platform-V2-ndk.so;SYMLINK=vendor/lib64/arm.mali.pl
 vendor/lib64/mt6897/libaal_cust_func.so;SYMLINK=vendor/lib64/libaal_cust_func.so
 vendor/lib64/mt6897/libaalservice.so;SYMLINK=vendor/lib64/libaalservice.so
 vendor/lib64/mt6897/libaiselector.so;SYMLINK=vendor/lib64/libaiselector.so
-vendor/lib64/mt6897/libarm_mali_config_sysprops.so
+vendor/lib64/mt6897/libarm_egl_properties_sysprop.so;SYMLINK=vendor/lib64/libarm_egl_properties_sysprop.so
+vendor/lib64/mt6897/libarm_gralloc_properties_sysprop.so;SYMLINK=vendor/lib64/libarm_gralloc_properties_sysprop.so
+vendor/lib64/mt6897/libarm_mali_config_sysprops.so;SYMLINK=vendor/lib64/libarm_mali_config_sysprops.so
 vendor/lib64/mt6897/libdpframework.so;SYMLINK=vendor/lib64/libdpframework.so
 vendor/lib64/mt6897/libmml.so;SYMLINK=vendor/lib64/libmml.so
 vendor/lib64/mt6897/libmmlpqImpl.so;SYMLINK=vendor/lib64/libmmlpqImpl.so
