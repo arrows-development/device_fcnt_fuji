@@ -268,6 +268,8 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 TARGET_BOARD_PLATFORM := mt6897
 
 # Radio
+$(call inherit-product, hardware/lineage/compat/frameworks/compat.mk)
+
 PRODUCT_PACKAGES += \
     vendor_mdota_symlink
 
