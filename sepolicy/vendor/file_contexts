@@ -49,6 +49,9 @@
 # IMS
 /vendor/bin/mtk_lbs_service                                                            u:object_r:lbs_hidl_service_exec:s0
 
+# Lights
+/vendor/bin/hw/android\.hardware\.light-service\.fuji                                  u:object_r:hal_light_default_exec:s0
+
 # Mobicore TEE
 /mnt/vendor/tzapp(/.*)?                                                                u:object_r:mnt_vendor_trustlet_file:s0
 

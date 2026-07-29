@@ -1,0 +1,10 @@
+on early-init
+    chmod 0660 /proc/mtkfb
+    chown system system /proc/mtkfb
+
+service vendor.light-default /vendor/bin/hw/android.hardware.light-service.fuji
+    class hal
+    user system
+    group system
+    # shutting off lights while powering-off
+    shutdown critical
