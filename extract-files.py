@@ -56,7 +56,15 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libalsautils.so','libalsautils-v31.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     'vendor/lib64/hw/hwcomposer.mtk_common.so': blob_fixup()
-        .add_needed('libprocessgroup_shim.so'),
+        .add_needed('libprocessgroup_shim.so')
+        .binary_regex_replace(
+            rb'\xff\x00\x13\xeb\x09\x0e\x00\x54\xf4\x03\x03\x2a\x64\x09\x04\x94\xe1\x03\x13\xaa\xe2\x03\x1f\x2a\x65\x09\x04\x94',
+            b'\xff\x00\x13\xeb\x09\x0e\x00\x54\x59\x03\x04\x14\x64\x09\x04\x94\xe1\x03\x13\xaa\xe2\x03\x1f\x2a\x65\x09\x04\x94',
+        )
+        .binary_regex_replace(
+            rb'\x8c\x14\x00\x14\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
+            b'\x43\x00\x00\x35\x63\x00\x80\x52\xf4\x03\x03\x2a\xa5\xfc\xfb\x17',
+        ),
     ('vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so',
      'vendor/lib64/libstfactory-vendor.so', 'vendor/lib64/libnvram.so',
      'vendor/lib64/libsysenv.so', 'vendor/lib64/libtflite_mtk.so'): blob_fixup()
