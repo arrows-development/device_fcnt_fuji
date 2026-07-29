@@ -191,6 +191,10 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/idc/,$(TARGET_COPY_OUT_VENDOR)/usr/idc) \
     $(call find-copy-subdir-files,*,$(DEVICE_PATH)/configs/keylayout/,$(TARGET_COPY_OUT_VENDOR)/usr/keylayout)
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light-service.fuji
+
 # Linker
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
     $(LOCAL_PATH)/configs/linker.config.json
@@ -213,10 +217,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
-
-# Light
-PRODUCT_PACKAGES += \
-    android.hardware.light-service.lineage
 
 # Media
 PRODUCT_COPY_FILES += \
