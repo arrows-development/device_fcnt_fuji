@@ -107,9 +107,6 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/mt6897/libmtkcam_hal_aidl_common.so': blob_fixup()
         .replace_needed('android.hardware.camera.common-V2-ndk.so', 'android.hardware.camera.common-V1-ndk.so'),
 
-    'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so': blob_fixup()
-        .replace_needed('android.hardware.soundtrigger3-V1-ndk.so', 'android.hardware.soundtrigger3-V3-ndk.so'),
-
     'vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so': blob_fixup()
         .replace_needed('android.hardware.audio.common-V1-ndk.so', 'android.hardware.audio.common-V2-ndk.so'),
 
