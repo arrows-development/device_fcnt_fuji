@@ -263,11 +263,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     LineageApertureOverlayFuji
 
-# Parts
-PRODUCT_PACKAGES += \
-    RegulatoryInfoOverlayM08 \
-    RegulatoryInfoOverlayF-51F
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.lineage-libperfmgr \
@@ -305,6 +300,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/mediatek-ims-base.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/mediatek-ims-base.xml \
     $(LOCAL_PATH)/configs/permissions/mediatek-ims-oem-plugin.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/mediatek-ims-oem-plugin.xml
+
+# Regulatory
+PRODUCT_PACKAGES += \
+    RegulatoryInfoOverlayM08 \
+    RegulatoryInfoOverlayF-51F
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/component-overrides-regulatory-info.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/component-overrides-regulatory-info.xml
 
 # Sensors
 PRODUCT_PACKAGES += \
