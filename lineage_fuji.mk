@@ -16,6 +16,10 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
 
+# WitAqua stuff
+PROCESSOR_INFO := MediaTek Dimensity 8350 Extreme
+WITAQUA_MAINTAINER := kailua
+
 PRODUCT_NAME := lineage_fuji
 PRODUCT_DEVICE := fuji
 PRODUCT_MANUFACTURER := FCNT
