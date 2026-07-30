@@ -247,6 +247,9 @@ PRODUCT_PACKAGES += \
     RegulatoryInfoOverlayM08 \
     RegulatoryInfoOverlayF-51F
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/configs/component-overrides-regulatory-info.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/component-overrides-regulatory-info.xml
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service.pixel-libperfmgr \
