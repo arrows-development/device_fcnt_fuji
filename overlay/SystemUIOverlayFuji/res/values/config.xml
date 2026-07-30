@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The Linux Foundation
+     SPDX-License-Identifier: BSD-3-Clause
+-->
+<resources>
+
+    <!-- Doze: does this device support STATE_DOZE?  -->
+    <bool name="doze_display_state_supported">true</bool>
+
+    <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
+    <bool name="doze_suspend_display_state_supported">false</bool>
+
+    <!-- Doze: check proximity sensor before pulsing? -->
+    <bool name="doze_proximity_check_before_pulse">true</bool>
+
+    <!-- Whether usage of the proximity sensor during doze is supported -->
+    <bool name="doze_proximity_sensor_supported">true</bool>
+
+</resources>
