@@ -26,8 +26,6 @@ cc_binary {
         "liblog",
         "libutils",
         "libhardware",
-        "android.hardware.soundtrigger3-impl",
-        "android.hardware.soundtrigger3-V1-ndk",
         "vendor.mediatek.hardware.audio-impl",
         "vendor.mediatek.hardware.audio-V1-ndk",
     ],

@@ -25,7 +25,7 @@ vendor/etc/smartpa_param/tfa98xx_ringtone_m.bin
 vendor/etc/smartpa_param/tfa98xx_voice.bin
 vendor/etc/smartpa_param/tfa98xx_voice_m.bin
 vendor/etc/init/bootperf.rc
-vendor/lib64/hw/android.hardware.soundtrigger3-impl.so;DISABLE_DEPS
+vendor/lib64/hw/android.hardware.soundtrigger3-impl.so
 vendor/lib64/hw/audio.primary.mediatek.so;SYMLINK=vendor/lib64/hw/audio.primary.mt6897.so
 vendor/lib64/hw/audio.r_submix.mediatek.so;SYMLINK=vendor/lib64/hw/audio.r_submix.mt6897.so
 vendor/lib64/hw/sound_trigger.primary.default.so

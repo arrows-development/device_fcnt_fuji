@@ -115,10 +115,6 @@
         <fqname>ISecureElement/SIM2</fqname>
     </hal>
     <hal format="aidl">
-        <name>android.hardware.soundtrigger3</name>
-        <fqname>ISoundTriggerHw/default</fqname>
-    </hal>
-    <hal format="aidl">
         <name>vendor.mediatek.hardware.apmonitor</name>
         <fqname>IApmService/default</fqname>
     </hal>
