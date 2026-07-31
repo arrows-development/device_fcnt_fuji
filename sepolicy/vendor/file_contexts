@@ -25,7 +25,7 @@
 /sys/devices/virtual/touchscreen/primary/double_tap_enabled                            u:object_r:vendor_sysfs_touchpanel:s0
 
 # Fingerprint
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.fpc                 u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.motorola            u:object_r:hal_fingerprint_default_exec:s0
 
 # Gatekeeper
 /vendor/bin/hw/android\.hardware\.gatekeeper-service\.trustonic                        u:object_r:hal_gatekeeper_default_exec:s0

@@ -1006,12 +1006,7 @@ product/etc/felica/mfs.cfg
 product/priv-app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
 
 # Fingerprint
-vendor/bin/fpc_tee_test
-vendor/bin/hw/android.hardware.biometrics.fingerprint-service.fpc
-vendor/etc/init/android.hardware.biometrics.fingerprint-service-fpc2.rc
-vendor/etc/vintf/manifest/manifest_IMoto_AIDL_Fingerprint.xml
 vendor/framework/com.fingerprints.extension.jar
-vendor/lib64/com.motorola.hardware.biometric.fingerprint-V1-ndk.so
 vendor/lib64/hw/fingerprint.fpc.mt6897.so
 
 # Gatekeeper
