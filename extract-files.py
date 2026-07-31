@@ -39,7 +39,7 @@ blob_fixups: blob_fixups_user_type = {
         .apktool_patch('ims-patches'),
     ('system_ext/etc/init/init.vtservice.rc', 'vendor/etc/init/android.hardware.neuralnetworks-shim-service-mtk.rc'): blob_fixup()
         .regex_replace('start', 'enable'),
-    'system_ext/lib64/libsink.so': blob_fixup()
+    'system_ext/lib64/libsink-mtk.so': blob_fixup()
         .add_needed('libaudioclient_shim.so'),
     'system_ext/lib64/libsource.so': blob_fixup()
         .add_needed('libui_shim.so'),
