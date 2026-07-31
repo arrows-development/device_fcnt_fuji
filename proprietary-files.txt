@@ -1097,10 +1097,13 @@ vendor/etc/init/android.hardware.security.keymint@3.0-service.trustonic.rc
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service.trustonic.xml
 vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.trustonic.xml
 vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.trustonic.xml
+vendor/lib64/lib_android_keymaster_keymint_utils.so:vendor/lib64/lib_android_keymaster_keymint_utils-v34.so;FIX_SONAME
+vendor/lib64/libcppbor_external.so:vendor/lib64/libcppbor_external-v34.so;FIX_SONAME
 vendor/lib64/libdecrypt.so
 vendor/lib64/libextra-thales.so
 vendor/lib64/libjc_keymint-thales.so
 vendor/lib64/libjc_keymint_transport-thales.so
+vendor/lib64/libkeymint.so:vendor/lib64/libkeymint-v34.so;FIX_SONAME
 vendor/lib64/libkmsetkey.so
 vendor/lib64/libnativecospatchkernel-thales.so
 vendor/lib64/libnativecosupdateapi-thales.so

@@ -178,6 +178,16 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libcodec2_vndk-v34.so': blob_fixup()
         .replace_needed('libui.so', 'libui-v34.so')
         .replace_needed('android.hardware.media.bufferpool2-V1-ndk.so', 'android.hardware.media.bufferpool2-V2-ndk.so'),
+    ('vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales',
+     'vendor/bin/hw/android.hardware.security.keymint@3.0-service.trustonic',
+     'vendor/bin/moto_eSE_tool',
+     'vendor/lib64/libjc_keymint-thales.so',
+     'vendor/lib64/libtpa.so'): blob_fixup()
+        .replace_needed('lib_android_keymaster_keymint_utils.so', 'lib_android_keymaster_keymint_utils-v34.so')
+        .replace_needed('libcppbor_external.so', 'libcppbor_external-v34.so')
+        .replace_needed('libkeymint.so', 'libkeymint-v34.so'),
+    'vendor/lib64/libkeymint-v34.so': blob_fixup()
+        .replace_needed('lib_android_keymaster_keymint_utils.so', 'lib_android_keymaster_keymint_utils-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
