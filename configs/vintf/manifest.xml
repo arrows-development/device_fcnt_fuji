@@ -114,6 +114,17 @@
         <fqname>ISecureElement/SIM1</fqname>
         <fqname>ISecureElement/SIM2</fqname>
     </hal>
+    <hal format="aidl">
+        <name>com.fingerprints.fpc.extension</name>
+        <version>1</version>
+        <fqname>IFpcExtension/default</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>com.motorola.hardware.biometric.fingerprint</name>
+        <version>3</version>
+        <fqname>IMotoFingerPrint/default</fqname>
+        <fqname>IMotoCaptiveSensorTest/default</fqname>
+    </hal>
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>

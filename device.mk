@@ -140,8 +140,10 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/felica_docomo/,$(TARGET_COPY_OUT_PRODUCT)/etc/felica_docomo/)
 
 # Fingerprint
+$(call soong_config_set_bool,motorola_biometrics_fingerprint,impl_v2,true)
+
 PRODUCT_PACKAGES += \
-    com.motorola.hardware.biometric.fingerprint@1.0.vendor
+    android.hardware.biometrics.fingerprint-service.motorola
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml

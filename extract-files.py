@@ -75,12 +75,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('liblog.so'),
     'vendor/lib64/mt6897/libmnl.so': blob_fixup()
         .add_needed('libcutils.so'),
-    'vendor/bin/hw/android.hardware.biometrics.fingerprint-service.fpc': blob_fixup()
-        .binary_regex_replace(b'/virtual', b'/default')
-        .replace_needed('android.hardware.biometrics.common-V3-ndk.so', 'android.hardware.biometrics.common-V4-ndk.so')
-        .replace_needed('android.hardware.biometrics.fingerprint-V3-ndk.so', 'android.hardware.biometrics.fingerprint-V4-ndk.so'),
-    'vendor/etc/vintf/manifest/manifest_IMoto_AIDL_Fingerprint.xml': blob_fixup()
-        .regex_replace('IFingerprint/virtual', 'IFingerprint/default'),
+    'vendor/bin/init.oem.fingerprint2.sh': blob_fixup()
+        .regex_replace('start \\$\\{hal_list\\[\\$1\\]\\}', 'start vendor.fingerprint-default'),
     'vendor/lib64/mt6897/libmtkcam_hal_aidl_common.so': blob_fixup()
         .replace_needed('android.hardware.camera.common-V2-ndk.so', 'android.hardware.camera.common-V1-ndk.so'),
     'vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so': blob_fixup()
