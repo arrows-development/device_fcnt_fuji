@@ -60,3 +60,13 @@ on property:sys.boot_completed=1
     write /dev/cpuctl/top-app/cpu.uclamp.min 0
     write /dev/cpuctl/top-app/cpu.uclamp.max max
     write /dev/cpuctl/top-app/cpu.shares 20480
+
+service vendor.gralloc-v2 /vendor/bin/hw/android.hardware.graphics.allocator-V2-service-mediatek
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    onrestart restart vendor.hwcomposer-3-2
+    onrestart restart camerahalserver
+    task_profiles ProcessCapacityHigh HighPerformance
