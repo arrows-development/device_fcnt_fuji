@@ -141,8 +141,7 @@ PRODUCT_COPY_FILES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint-service.motorola \
-    com.motorola.hardware.biometric.fingerprint-V1-ndk.vendor
+    android.hardware.biometrics.fingerprint-service.motorola
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml

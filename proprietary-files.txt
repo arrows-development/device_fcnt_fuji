@@ -1008,6 +1008,7 @@ product/priv-app/MobileFeliCaClient/MobileFeliCaClient.apk;PRESIGNED
 # Fingerprint
 vendor/framework/com.fingerprints.extension.jar
 vendor/lib64/hw/fingerprint.fpc.mt6897.so
+vendor/lib64/com.motorola.hardware.biometric.fingerprint-V1-ndk.so
 
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper-service.trustonic
