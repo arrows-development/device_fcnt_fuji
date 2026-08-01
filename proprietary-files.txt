@@ -918,7 +918,6 @@ vendor/lib64/hw/mt6897/mapper.mediatek.so;SYMLINK=vendor/lib64/hw/mapper.mediate
 vendor/lib64/hw/mt6897/vendor.mediatek.hardware.pq_aidl-impl.so;SYMLINK=vendor/lib64/hw/vendor.mediatek.hardware.pq_aidl-impl.so
 vendor/lib64/hw/mt6897/vulkan.mali.so;SYMLINK=vendor/lib64/hw/vulkan.mali.so
 vendor/lib64/libaal_cust.so
-vendor/lib64/libaal_key.so
 vendor/lib64/libaal_sec.so
 vendor/lib64/libaibld.nn6.so
 vendor/lib64/libappgamepq.so
