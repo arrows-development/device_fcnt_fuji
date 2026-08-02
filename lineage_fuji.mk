@@ -30,5 +30,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceName=fuji \
-    BuildDesc="M08-user 15 V2VHS35.58-32-41-5 58593-71a1ce release-keys MV-324" \
-    BuildFingerprint=FCNT/M08/fuji:15/V2VHS35.58-32-41-5/58593-71a1ce:user/release-keys
+    BuildDesc="M08-user 16 W1VHS36H.80-34-2-2-1-5 64c964-a8f54 release-keys MV-324" \
+    BuildFingerprint=FCNT/M08/fuji:16/W1VHS36H.80-34-2-2-1-5/64c964-a8f54:user/release-keys
