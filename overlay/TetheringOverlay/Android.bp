@@ -6,5 +6,5 @@
 runtime_resource_overlay {
     name: "TetheringConfigOverlay",
     resource_dirs: ["res"],
-    product_specific: true,
+    vendor: true,
 }
