@@ -258,6 +258,7 @@ PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     WifiOverlay \
     EuiccOverlay \
+    TelecommOverlayFuji \
     TelephonyOverlayFuji \
     SecureElementOverlayFuji
 
