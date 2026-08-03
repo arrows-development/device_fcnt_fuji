@@ -1,0 +1,18 @@
+[
+  {
+    "repository": "device_fcnt_fuji-kernel",
+    "target_path": "device/fcnt/fuji-kernel"
+  },
+  {
+    "repository": "motorola-mt6878/hardware_motorola",
+    "target_path": "hardware/motorola",
+    "remote": "github",
+    "branch": "sixteen-staging"
+  },
+  {
+    "repository": "arrows-development/packages_apps_FCNTParts",
+    "target_path": "packages/apps/FCNTParts",
+    "remote": "github",
+    "branch": "lineage-23.2"
+  }
+]
