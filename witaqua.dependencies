@@ -1,0 +1,22 @@
+[
+  {
+    "repository": "device_fcnt_fuji-kernel",
+    "target_path": "device/fcnt/fuji-kernel"
+  },
+  {
+    "repository": "device_mediatek_sepolicy_vndr",
+    "target_path": "device/mediatek/sepolicy_vndr"
+  },
+  {
+    "repository": "hardware_mediatek",
+    "target_path": "hardware/mediatek"
+  },
+  {
+    "repository": "hardware_motorola",
+    "target_path": "hardware/motorola"
+  },
+  {
+    "repository": "packages_apps_FCNTParts",
+    "target_path": "packages/apps/FCNTParts"
+  }
+]
