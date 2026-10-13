@@ -65,7 +65,6 @@ vendor/lib64/libvow_comp_test.so
 vendor/lib64/vendor.mediatek.hardware.audio@6.1.so
 vendor/lib64/vendor.mediatek.hardware.audio@7.1.so
 vendor/lib64/vendor.mediatek.hardware.audio@8.1.so
-vendor/lib64/vendor.mediatek.hardware.bluetooth.audio-V1-ndk.so
 
 # Audio (configs)
 vendor/etc/aualgo/ainr_tfv2.dat
