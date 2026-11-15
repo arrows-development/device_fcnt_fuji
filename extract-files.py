@@ -55,6 +55,8 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libutils.so','libutils-v32.so')
         .replace_needed('libalsautils.so','libalsautils-v31.so')
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
+    'vendor/lib64/hw/android.hardware.soundtrigger3-impl.so': blob_fixup()
+        .replace_needed('libaudio_aidl_conversion_common_ndk.so', 'libaudio_aidl_conversion_common_ndk-v34.so'),
     'vendor/lib64/hw/hwcomposer.mtk_common.so': blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
     ('vendor/lib64/mt6897/libneuralnetworks_sl_driver_mtk_prebuilt.so',
