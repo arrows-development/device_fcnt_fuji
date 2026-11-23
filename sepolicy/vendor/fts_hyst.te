@@ -1,0 +1,12 @@
+type fts_hyst, domain;
+type fts_hyst_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(fts_hyst)
+
+allow fts_hyst self:global_capability_class_set sys_nice;
+allow fts_hyst self:process setsched;
+
+allow fts_hyst input_device:dir r_dir_perms;
+allow fts_hyst input_device:chr_file r_file_perms;
+allow fts_hyst vendor_proc_touchpanel:file rw_file_perms;
+allow fts_hyst { uhid_device uinput_device }:chr_file rw_file_perms;

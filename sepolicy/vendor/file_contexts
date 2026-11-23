@@ -27,6 +27,9 @@
 # Fingerprint
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.fpc                 u:object_r:hal_fingerprint_default_exec:s0
 
+# FTS touchpanel fixup
+/vendor/bin/fts_hyst                                                                   u:object_r:fts_hyst_exec:s0
+
 # Gatekeeper
 /vendor/bin/hw/android\.hardware\.gatekeeper-service\.trustonic                        u:object_r:hal_gatekeeper_default_exec:s0
 

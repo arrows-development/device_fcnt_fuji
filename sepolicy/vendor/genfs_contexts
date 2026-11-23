@@ -31,6 +31,7 @@ genfscon sysfs /devices/platform/smart_battery/power_supply/battery             
 # Touchpanel
 genfscon sysfs /class/touchscreen u:object_r:vendor_sysfs_touchpanel:s0
 genfscon sysfs /devices/virtual/touchscreen u:object_r:vendor_sysfs_touchpanel:s0
+genfscon proc /ftxxxx-debug u:object_r:vendor_proc_touchpanel:s0
 
 # Vibrator
 genfscon sysfs /devices/platform/11d01000.i2c/i2c-1/1-005a/leds/vibrator/activate        u:object_r:sysfs_vibrator:s0

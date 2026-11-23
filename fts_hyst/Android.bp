@@ -1,0 +1,16 @@
+//
+// Copyright (C) 2026 The 2by2 Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "fts_hyst",
+    vendor: true,
+    init_rc: ["fts_hyst.rc"],
+    srcs: ["fts_hyst.c"],
+    cflags: [
+        "-Wall",
+        "-Werror",
+    ],
+}
